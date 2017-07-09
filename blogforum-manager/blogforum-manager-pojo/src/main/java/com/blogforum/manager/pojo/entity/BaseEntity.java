@@ -1,6 +1,9 @@
 package com.blogforum.manager.pojo.entity;
 
-import org.apache.commons.lang3.StringUtils;
+import java.io.Serializable;
+
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 /**
@@ -9,40 +12,22 @@ import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
  * @author Edward
  * 
  */
-public abstract class BaseEntity/* <ID extends Serializable> */{
+public abstract class BaseEntity implements Serializable{
 
-	public abstract String getId();
 
-	public abstract void setId(final String id);
-
-	// public abstract ID getId();
-	//
-	// public abstract void setId(final ID id);
-
-	public boolean isNew() {
-		return StringUtils.isBlank(getId());
-	}
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@Override
 	public boolean equals(Object obj) {
-		if (null == obj) {
-			return false;
-		}
-		if (this == obj) {
-			return true;
-		}
-		if (!getClass().equals(obj.getClass())) {
-			return false;
-		}
-		BaseEntity that = (BaseEntity) obj;
-		return null == this.getId() ? false : this.getId().equals(that.getId());
+		return EqualsBuilder.reflectionEquals(this,obj);
 	}
 
 	@Override
 	public int hashCode() {
-		int hashCode = 17;
-		hashCode += null == getId() ? 0 : getId().hashCode() * 31;
-		return hashCode;
+		return HashCodeBuilder.reflectionHashCode(this);
 	}
 
 	@Override

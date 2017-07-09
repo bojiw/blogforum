@@ -12,43 +12,43 @@ public class PublicNote {
 	/**
 	 * 编号
 	 */
-	public String id;
+	private String id;
 	/**
 	 * 笔记标题
 	 */
-	public String noteTitle;
+	private String noteTitle;
 	/**
 	 * 笔记内容
 	 */
-	public String noteBody;
+	private String noteBody;
 	/**
 	 * 创建时间
 	 */
-	public Date createDate;
+	private Date createDate;
 	/**
 	 * 更新时间
 	 */
-	public Date updateDate;
+	private Date updateDate;
 	/**
 	 * 笔记本
 	 */
-	public NoteBook noteBook;
+	private NoteBook noteBook;
 	/**
 	 * 附件路径
 	 */
-	public String enclosure;
+	private String enclosure;
 	/**
 	 * 图片文字
 	 */
-	public String imag;
+	private String imag;
 	/**
 	 * 删除标记 N为不删除 Y为删除
 	 */
-	public String delFlag;
+	private String delFlag;
 	/**
 	 * 创建笔记人
 	 */
-	public User user;
+	private User user;
 
 	public String getId() {
 		return id;

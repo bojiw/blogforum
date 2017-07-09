@@ -13,36 +13,36 @@ public class BlogComment {
 	/**
 	 * 编号
 	 */
-	public String id;
+	private String id;
 	/**
 	 * 用户
 	 */
-	public User user;
+	private User user;
 	/**
 	 * 博客笔记
 	 */
-	public BlogNote blogNote;
+	private BlogNote blogNote;
 	/**
 	 * 评论内容
 	 */
-	public String content;
+	private String content;
 	/**
 	 * 创建时间
 	 */
-	public Date createDate;
+	private Date createDate;
 	/**
 	 * 是否有回复N代表没有 Y代表有
 	 */
-	public String storey;
+	private String storey;
 	/**
 	 * 是否发布 N代表不发布 Y代表发布
 	 */
-	public String releaseFlat;
+	private String releaseFlat;
 
 	/**
 	 * 回复的内容
 	 */
-	public List<Reply> replies;
+	private List<Reply> replies;
 
 	public String getId() {
 		return id;

@@ -2,6 +2,8 @@ package com.blogforum.dao.mapper;
 
 import java.util.List;
 
+import com.blogforum.manager.pojo.entity.DataEntity;
+
 
 public interface CrudMapper<T extends DataEntity<T>> extends BaseMapper {
 	public void save(T t);

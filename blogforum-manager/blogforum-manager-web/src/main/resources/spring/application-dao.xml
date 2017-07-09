@@ -20,6 +20,8 @@
 		<property name="driverClassName" value="${jdbc.driver}" />
 		<property name="maxActive" value="10" />
 		<property name="minIdle" value="5" />
+		<property name="filters" value="config" />
+		<property name="connectionProperties" value="config.decrypt=true"></property>
 		<!-- 数据库连接超时时间 -->
 		<property name="maxWait" value="5000"/>
 	</bean>

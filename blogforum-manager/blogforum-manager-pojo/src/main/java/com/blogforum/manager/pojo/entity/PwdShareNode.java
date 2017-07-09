@@ -12,23 +12,23 @@ public class PwdShareNode {
 	/**
 	 * 编号
 	 */
-	public String id;
+	private String id;
 	/**
 	 * 用户id
 	 */
-	public User user;
+	private User user;
 	/**
 	 * 笔记
 	 */
-	public Note node;
+	private Note node;
 	/**
 	 * 加密密码
 	 */
-	public String password;
+	private String password;
 	/**
 	 * 创建时间
 	 */
-	public Date createDate;
+	private Date createDate;
 
 	public String getId() {
 		return id;

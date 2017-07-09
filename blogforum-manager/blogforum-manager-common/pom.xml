@@ -14,7 +14,11 @@
 			    <artifactId>blogforum-manager-pojo</artifactId>
 			    <version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+		<!-- 日志处理 -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>

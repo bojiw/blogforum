@@ -13,31 +13,31 @@ public class Role {
 	/**
 	 * 编号
 	 */
-	public int id;
+	private int id;
 	/**
 	 * 角色名称
 	 */
-	public String name;
+	private String name;
 	/**
 	 * 创建者
 	 */
-	public String createBy;
+	private String createBy;
 	/**
 	 * 创建时间
 	 */
-	public Date createDate;
+	private Date createDate;
 	/**
 	 * 更新时间
 	 */
-	public Date updateDate;
+	private Date updateDate;
 	/**
 	 * 备注
 	 */
-	public String remarks;
+	private String remarks;
 	/**
 	 * 删除标记 N为不删除 Y为删除
 	 */
-	public String delFlag;
+	private String delFlag;
 
 	/**
 	 * 拥有的权限

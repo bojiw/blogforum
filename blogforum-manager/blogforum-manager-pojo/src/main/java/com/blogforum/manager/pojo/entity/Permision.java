@@ -12,20 +12,20 @@ public class Permision {
 	/**
 	 * 编号
 	 */
-	public int id;
+	private int id;
 	/**
 	 * 权限名称
 	 */
-	public String name;
+	private String name;
 	/**
 	 * 访问路径
 	 */
-	public String controller;
+	private String controller;
 
 	/**
 	 * 拥有这个权限的角色
 	 */
-	public List<Role> roles;
+	private List<Role> roles;
 
 	public int getId() {
 		return id;

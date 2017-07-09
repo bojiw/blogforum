@@ -9,7 +9,7 @@
     
 
     <!-- 配置包扫描器 -->    
-    <context:component-scan base-package="com.blogforum.com.controller"/>
+    <context:component-scan base-package="com.blogforum.web.controller"/>
     <!-- 配置注解驱动 -->
     <mvc:annotation-driven/>
     <!-- 视图解析器 -->
@@ -19,7 +19,7 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- 捕捉异常拦截器 -->
-	<bean name="exceptionResolver" class="com.blogforum.exception.MyCustomExceptionResolver"></bean>
+	<bean name="exceptionResolver" class="com.blogforum.web.exception.MyCustomExceptionResolver"></bean>
 
 	
 		<!-- 静态资源映射 -->
