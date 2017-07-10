@@ -53,8 +53,8 @@ mybatis:
     mapper-locations: classpath:mapper/*.xml
     
     
-    
-serviceUrl: http://119.23.247.225:8011
+#sso服务器地址
+ssoServiceUrl: http://119.23.247.225:8011
 
 
 

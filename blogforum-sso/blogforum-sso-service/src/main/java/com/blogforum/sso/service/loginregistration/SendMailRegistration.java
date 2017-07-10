@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.sso.dao.redis.RedisClick;
 import com.blogforum.sso.pojo.entity.User;
 
@@ -18,7 +19,7 @@ public class SendMailRegistration implements LoginRegistration {
 	private RedisClick redisClick;
 	
 	@Override
-	public void execute(User user) throws Exception {
+	public blogforumResult execute(User user){
 		//邮件发送类
 		MailSend mailSend = new MailSend();
 		//设置接收邮件人
@@ -27,6 +28,8 @@ public class SendMailRegistration implements LoginRegistration {
 		mailSend.setText(buildMailInfo(user));
 		//发送邮件
 		mailSend.send();
+		
+		return blogforumResult.ok();
 
 	}
 
@@ -35,7 +38,7 @@ public class SendMailRegistration implements LoginRegistration {
 	 * @param user
 	 * @return
 	 */
-	private String buildMailInfo(User user) throws Exception {
+	private String buildMailInfo(User user){
 		StringBuffer mailInfo = new StringBuffer();
 		//验证码
 		int verificationCode =  (int)(Math.random() * 10000);
