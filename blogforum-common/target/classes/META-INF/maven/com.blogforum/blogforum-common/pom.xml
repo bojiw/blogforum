@@ -45,7 +45,11 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			<artifactId>junit</artifactId>
 			<scope>test</scope>
 		</dependency>
-
+		<!-- fastjson工具 -->
+		<dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>fastjson</artifactId>
+		</dependency>
 		<!-- servlet包 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>

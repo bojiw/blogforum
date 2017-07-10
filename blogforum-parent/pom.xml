@@ -36,6 +36,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<quartz.version>2.2.2</quartz.version>
 		<ehcache.version>2.7.5</ehcache.version>
 		<ehcache-spring.version>1.2.0</ehcache-spring.version>
+		<fastjson.version>1.2.30</fastjson.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -207,7 +208,12 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		       <artifactId>ehcache-spring-annotations</artifactId>
 		       <version>${ehcache-spring.version}</version>
 		   </dependency>
-			
+			<!-- fastjson工具 -->
+			<dependency>
+			  <groupId>com.alibaba</groupId>
+			  <artifactId>fastjson</artifactId>
+			  <version>${fastjson.version}</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
