@@ -14,7 +14,8 @@ import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.blogforum.common.tools.JsonUtils;
+import com.alibaba.fastjson.JSON;
+import com.blogforum.common.enums.BizError;
 import com.blogforum.sso.common.exception.SSOBusinessException;
 
 @Component
@@ -43,7 +44,7 @@ public class RedisClientImpl implements RedisClick {
 		}
 
         if (!result) {
-			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,value),new SSOBusinessException("插入redis失败"));
+			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,value),new SSOBusinessException(BizError.SYS_EXCEPTION));
 		}
         return result;  
     }  
@@ -62,28 +63,36 @@ public class RedisClientImpl implements RedisClick {
   
     @Override  
     public boolean expire(final String key, long expire) {  
-        return redisTemplate.expire(key, expire, TimeUnit.SECONDS);  
+    	boolean result = false;
+    	try {
+    		result = redisTemplate.expire(key, expire, TimeUnit.SECONDS);  
+		} catch (Exception e) {
+			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,expire),e);
+		}
+    	
+    	
+        return result;  
     }  
   
     @Override  
-    public <T> boolean setList(String key, List<T> list) throws Exception {  
-        String value = JsonUtils.listTojson(list);  
+    public <T> boolean setList(String key, List<T> list){  
+        String value = JSON.toJSONString(list);  
         return set(key,value);  
     }  
   
     @Override  
-    public <T> List<T> getList(String key,Class<T> clz) throws Exception {  
+    public <T> List<T> getList(String key,Class<T> clz){  
         String json = get(key);  
         if(json!=null){  
-            List<T> list = JsonUtils.jsonTolist(key, clz);  
+            List<T> list = JSON.parseArray(key,clz);
             return list;  
         }  
         return null;  
     }  
   
     @Override  
-    public long lpush(final String key, Object obj) throws Exception {  
-        final String value = JsonUtils.objTojson(obj);  
+    public long lpush(final String key, Object obj){  
+        final String value = JSON.toJSONString(obj); 
         long result = redisTemplate.execute(new RedisCallback<Long>() {  
             @Override  
             public Long doInRedis(RedisConnection connection) throws DataAccessException {  
@@ -96,8 +105,8 @@ public class RedisClientImpl implements RedisClick {
     }  
   
     @Override  
-    public long rpush(final String key, Object obj) throws Exception {  
-        final String value = JsonUtils.objTojson(obj);  
+    public long rpush(final String key, Object obj){  
+        final String value = JSON.toJSONString(obj); 
         long result = redisTemplate.execute(new RedisCallback<Long>() {  
             @Override  
             public Long doInRedis(RedisConnection connection) throws DataAccessException {  
@@ -123,8 +132,8 @@ public class RedisClientImpl implements RedisClick {
     }
 
 	@Override
-	public boolean setObject(String key, Object obj) throws Exception {
-		String json = JsonUtils.objTojson(obj);
+	public boolean setObject(String key, Object obj){
+		String json = JSON.toJSONString(obj);
 		return set(key, json);
 	}  
   

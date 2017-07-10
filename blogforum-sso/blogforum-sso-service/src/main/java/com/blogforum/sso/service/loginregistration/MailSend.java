@@ -1,13 +1,10 @@
 package com.blogforum.sso.service.loginregistration;
 
-import javax.mail.internet.MimeMessage;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
-import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.stereotype.Component;
 
 import com.blogforum.sso.common.exception.SSOBusinessException;
+import com.blogforum.sso.common.utils.SpringUtil;
 import com.blogforum.sso.service.constant.ServiceConstant;
 
 /**
@@ -15,10 +12,9 @@ import com.blogforum.sso.service.constant.ServiceConstant;
  * @author Administrator
  *
  */
-@Component
 public class MailSend {
 	
-    @Autowired  
+	/** spring 邮件服务*/
     private JavaMailSender mailSender; 
 	
 	/**网易邮箱*/
@@ -36,6 +32,7 @@ public class MailSend {
 	public MailSend() {
 		this.myMail = ServiceConstant.myMail;
 		this.subject = ServiceConstant.subject;
+		mailSender = (JavaMailSender) SpringUtil.getBean("mailSender");
 	}
 
 	/**
@@ -43,8 +40,7 @@ public class MailSend {
 	 */
 	public void send(){
 		
-        final MimeMessage mimeMessage = this.mailSender.createMimeMessage();  
-        final MimeMessageHelper message = new MimeMessageHelper(mimeMessage); 
+        SimpleMailMessage message = new SimpleMailMessage(); 
         try {
             //发送人邮箱
             message.setFrom(myMail);  
@@ -55,7 +51,7 @@ public class MailSend {
             //内容
             message.setText(text);  
             //发送邮件
-            this.mailSender.send(mimeMessage);  
+            this.mailSender.send(message);  
 		} catch (Exception e) {
         	throw new SSOBusinessException("发送邮件失败 请重试！！！");
 		}
