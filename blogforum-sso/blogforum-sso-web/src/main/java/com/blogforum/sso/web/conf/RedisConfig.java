@@ -41,9 +41,13 @@ public class RedisConfig {
         return template;  
     }  
     
-    @Bean  
-    public StringRedisTemplate stringRedisTemplate(){  
-    	StringRedisTemplate template = new StringRedisTemplate(getConnectionFactory());
+    /**
+     * 开启事务管理的客户端
+     * @return
+     */
+    @Bean(name = "redisTemplateTransactional")
+    public RedisTemplate<?, ?> getRedisTemplateTransactional(){  
+        RedisTemplate<?,?> template = new StringRedisTemplate(getConnectionFactory());  
         template.setEnableTransactionSupport(true);
         return template;  
     }  

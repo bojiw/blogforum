@@ -16,9 +16,9 @@ public class LoginRegistrationFactoryConfig {
 	private SendMailRegistration sendMailRegistration;
 	
 	@Bean
-	public AbstractLoginRegistrationFactory abstractLoginRegistrationFactory(){
+	public LoginRegistrationFactory abstractLoginRegistrationFactory(){
 		//创建一个登录注册工厂实例
-		AbstractLoginRegistrationFactoryImpl abstractLoginRegistrationFactory = new AbstractLoginRegistrationFactoryImpl();
+		LoginRegistrationFactoryImpl abstractLoginRegistrationFactory = new LoginRegistrationFactoryImpl();
 		Map<String, LoginRegistration> manager = new HashMap<>();
 		//设置工厂中的bean
 		manager.put("sendMailRegistration", sendMailRegistration);

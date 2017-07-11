@@ -4,37 +4,39 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.RedisSystemException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alibaba.fastjson.JSON;
 import com.blogforum.common.enums.BizError;
 import com.blogforum.sso.common.exception.SSOBusinessException;
 
 /**
- * 普通redis客户端
+ * 开启事务redis客户端
  * @author Administrator
  *
  */
-@Service("redisClient")
-public class RedisClientImpl implements RedisClient {
-    @Autowired  
-    private RedisTemplate<String, ?> redisTemplate;  
+@Component("redisTransactionalClient")
+public class RedisTransactionalClientImpl implements RedisClient {
+    @Resource  
+    private RedisTemplate<String, ?> redisTemplateTransactional;  
     
     @Override  
     public boolean set(final String key, final String value) {  
     	boolean result = false;
     	try {
-            result = redisTemplate.execute(new RedisCallback<Boolean>() {  
+            result = redisTemplateTransactional.execute(new RedisCallback<Boolean>() {  
                 @Override  
                 public Boolean doInRedis(RedisConnection connection) throws DataAccessException {  
-                    RedisSerializer<String> serializer = redisTemplate.getStringSerializer();  
+                    RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
                     connection.set(serializer.serialize(key), serializer.serialize(value));  
                     return true;  
                 }  
@@ -50,10 +52,10 @@ public class RedisClientImpl implements RedisClient {
     }  
   
     public String get(final String key){  
-        String result = redisTemplate.execute(new RedisCallback<String>() {  
+        String result = redisTemplateTransactional.execute(new RedisCallback<String>() {  
             @Override  
             public String doInRedis(RedisConnection connection) throws DataAccessException {  
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();  
+                RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
                 byte[] value =  connection.get(serializer.serialize(key));  
                 return serializer.deserialize(value);  
             }  
@@ -65,7 +67,7 @@ public class RedisClientImpl implements RedisClient {
     public boolean expire(final String key, long expire) {  
     	boolean result = false;
     	try {
-    		result = redisTemplate.expire(key, expire, TimeUnit.SECONDS);  
+    		result = redisTemplateTransactional.expire(key, expire, TimeUnit.SECONDS);  
 		} catch (Exception e) {
 			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,expire),e);
 		}
@@ -93,10 +95,10 @@ public class RedisClientImpl implements RedisClient {
     @Override  
     public long lpush(final String key, Object obj){  
         final String value = JSON.toJSONString(obj); 
-        long result = redisTemplate.execute(new RedisCallback<Long>() {  
+        long result = redisTemplateTransactional.execute(new RedisCallback<Long>() {  
             @Override  
             public Long doInRedis(RedisConnection connection) throws DataAccessException {  
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();  
+                RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
                 long count = connection.lPush(serializer.serialize(key), serializer.serialize(value));  
                 return count;  
             }  
@@ -107,10 +109,10 @@ public class RedisClientImpl implements RedisClient {
     @Override  
     public long rpush(final String key, Object obj){  
         final String value = JSON.toJSONString(obj); 
-        long result = redisTemplate.execute(new RedisCallback<Long>() {  
+        long result = redisTemplateTransactional.execute(new RedisCallback<Long>() {  
             @Override  
             public Long doInRedis(RedisConnection connection) throws DataAccessException {  
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();  
+                RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
                 long count = connection.rPush(serializer.serialize(key), serializer.serialize(value));  
                 return count;  
             }  
@@ -120,10 +122,10 @@ public class RedisClientImpl implements RedisClient {
   
     @Override  
     public String lpop(final String key) {  
-        String result = redisTemplate.execute(new RedisCallback<String>() {  
+        String result = redisTemplateTransactional.execute(new RedisCallback<String>() {  
             @Override  
             public String doInRedis(RedisConnection connection) throws DataAccessException {  
-                RedisSerializer<String> serializer = redisTemplate.getStringSerializer();  
+                RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
                 byte[] res =  connection.lPop(serializer.serialize(key));  
                 return serializer.deserialize(res);  
             }  
@@ -138,11 +140,29 @@ public class RedisClientImpl implements RedisClient {
 	}
 
 	@Override
-	public boolean setExpire(String key, Object obj, long expire) {
-		String value = JSON.toJSONString(obj);
-		set(key, value);
-        return expire(key, expire); 
-	}
+	public boolean setExpire( final String key, Object obj, long expire) {
+		
+		final String value = JSON.toJSONString(obj);
+    	boolean result = false;
+    	try {
+            result = redisTemplateTransactional.execute(new RedisCallback<Boolean>() {  
+                @Override  
+                public Boolean doInRedis(RedisConnection connection) throws DataAccessException {  
+                    RedisSerializer<String> serializer = redisTemplateTransactional.getStringSerializer();  
+                    connection.set(serializer.serialize(key), serializer.serialize(value));  
+                    return true;  
+                }  
+            });  
+            
+            redisTemplateTransactional.expire(key, expire, TimeUnit.SECONDS);
+		} catch (Exception e) {
+			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,value),e);
+		}
 
+        if (!result) {
+			throw new RedisSystemException(MessageFormat.format("redis插入数据失败,key:{0},value:{1}", key,value),new SSOBusinessException(BizError.SYS_EXCEPTION));
+		}
+        return result;  
+	}  
   
 }

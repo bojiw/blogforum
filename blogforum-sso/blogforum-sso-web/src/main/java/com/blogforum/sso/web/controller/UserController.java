@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.sso.common.exception.SSOBusinessException;
 import com.blogforum.sso.pojo.entity.User;
-import com.blogforum.sso.service.loginregistration.AbstractLoginRegistrationFactory;
+import com.blogforum.sso.service.loginregistration.LoginRegistrationFactory;
 import com.blogforum.sso.service.userservice.UserService;
 
 @RestController
@@ -20,7 +20,7 @@ public class UserController {
 	private UserService userService;
 	
 	@Autowired
-	private AbstractLoginRegistrationFactory abstractLoginRegistrationFactory;
+	private LoginRegistrationFactory abstractLoginRegistrationFactory;
 	
 	@RequestMapping("/adduser")
 	public void addUser(){
