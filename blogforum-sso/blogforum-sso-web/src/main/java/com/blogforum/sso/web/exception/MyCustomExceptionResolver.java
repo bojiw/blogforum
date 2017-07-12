@@ -41,9 +41,10 @@ public class MyCustomExceptionResolver{
 			if (exception instanceof SSOBusinessException) {
 				map.put("status", ((SSOBusinessException) exception).getCode());
 				map.put("msg", exception.getMessage());
+				logger.error(exception.getMessage(), exception);
 
 			} else {
-				map.put("status", BizError.SYS_EXCEPTION.getStatus());
+				map.put("status", BizError.SYS_EXCEPTION.getCode());
 				map.put("msg", BizError.SYS_EXCEPTION.getMsg());
 				logger.error(BizError.SYS_EXCEPTION.getMsg(), exception);
 			}
@@ -61,8 +62,9 @@ public class MyCustomExceptionResolver{
 				if (exception instanceof SSOBusinessException) {
 					map.put("status", ((SSOBusinessException) exception).getCode());
 					map.put("msg", exception.getMessage());
+					logger.error(exception.getMessage(), exception);
 				} else {
-					map.put("status", BizError.SYS_EXCEPTION.getStatus());
+					map.put("status", BizError.SYS_EXCEPTION.getCode());
 					map.put("msg", BizError.SYS_EXCEPTION.getMsg());
 					logger.error(BizError.SYS_EXCEPTION.getMsg(), exception);
 				}

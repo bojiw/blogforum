@@ -36,11 +36,11 @@ public class SSOBusinessException extends RuntimeException {
 
 	public SSOBusinessException(BizError bizError,Exception e){
 		super(bizError.getMsg(),e);
-		this.code = bizError.getStatus();
+		this.code = bizError.getCode();
 	}
 	public SSOBusinessException(BizError bizError){
 		super(bizError.getMsg());
-		this.code = bizError.getStatus();
+		this.code = bizError.getCode();
 	}
 	
 	public String getCode() {

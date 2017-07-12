@@ -48,7 +48,7 @@ public class blogforumResult {
 	
 	@JsonFormat
 	public static blogforumResult build(BizError bizError, String success) {
-		String status = bizError.getStatus();
+		String status = bizError.getCode();
 		String msg = bizError.getMsg();
 		return new blogforumResult(status, msg, success, null);
 	}

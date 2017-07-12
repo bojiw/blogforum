@@ -33,20 +33,37 @@ public enum BizError {
 	/**用户名密码错误*/
 	FAIL_USERPWD("707","用户名密码错误");
 
-	private String	status;
+	private String	code;
 	private String	msg;
 
-	private BizError(String status, String msg) {
-		this.status = status;
+	private BizError(String code, String msg) {
+		this.code = code;
 		this.msg = msg;
 	}
 
-	public String getStatus() {
-		return status;
+	public BizError getBizByCode(String code){
+		for (BizError bizError : values()) {
+			if (bizError.code.equals(code)) {
+				return bizError;
+			}
+		}
+		return null;
+	}
+	public BizError getBizByMsg(String msg){
+		for (BizError bizError : values()) {
+			if (bizError.msg.equals(msg)) {
+				return bizError;
+			}
+		}
+		return null;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getMsg() {
@@ -56,5 +73,6 @@ public enum BizError {
 	public void setMsg(String msg) {
 		this.msg = msg;
 	}
-
+	
+	
 }

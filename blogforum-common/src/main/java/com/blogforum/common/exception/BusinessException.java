@@ -35,11 +35,11 @@ public class BusinessException extends RuntimeException {
 
 	public BusinessException(BizError bizError,Exception e){
 		super(bizError.getMsg(),e);
-		this.code = bizError.getStatus();
+		this.code = bizError.getCode();
 	}
 	public BusinessException(BizError bizError){
 		super(bizError.getMsg());
-		this.code = bizError.getStatus();
+		this.code = bizError.getCode();
 	}
 	
 	public String getCode() {

@@ -3,15 +3,15 @@ package com.blogforum.sso.dao.redis;
 import java.util.List;
 
 public interface RedisClient {
-    public boolean set(String key, String value);  
+    public Boolean set(String key, String value);  
     
-    public boolean setObject(String key, Object obj);
+    public Boolean setObject(String key, Object obj);
     
     public String get(String key);  
       
-    public boolean expire(String key,long expire);  
+    public Boolean expire(String key,long expire);  
       
-    public <T> boolean setList(String key ,List<T> list);  
+    public <T> Boolean setList(String key ,List<T> list);  
       
     public <T> List<T> getList(String key,Class<T> clz);  
       
@@ -27,5 +27,5 @@ public interface RedisClient {
      * @param expire
      * @return
      */
-    public boolean setExpire(String key, Object value,long expire);
+    public Boolean setExpire(String key, Object value,long expire);
 }
