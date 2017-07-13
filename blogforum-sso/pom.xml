@@ -57,6 +57,18 @@
 		      <artifactId>spring-boot-starter-redis</artifactId>
 		      <version>1.4.5.RELEASE</version>
 		    </dependency>
+		    <!-- 阿里大于短信平台 -->
+			<dependency>
+			  <groupId>com.aliyun</groupId>
+			  <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+			  <version>1.0.0</version>
+			</dependency>
+			<dependency>
+			  <groupId>com.aliyun</groupId>
+			  <artifactId>aliyun-java-sdk-core</artifactId>
+			  <version>3.2.3</version>
+			</dependency>
+			
             <dependency>
             	<groupId>com.blogforum</groupId>
             	<artifactId>blogforum-sso-service</artifactId>
@@ -79,4 +91,20 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+    
+	<repositories>
+        <repository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>http://119.23.247.225/:8081/nexus/content/groups/public</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>nexus</id>
+            <name>Team Nexus Repository</name>
+            <url>http://119.23.247.225:8081/nexus/content/groups/public</url>
+        </pluginRepository>
+    </pluginRepositories>
+    
 </project>

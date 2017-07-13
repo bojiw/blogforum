@@ -12,6 +12,17 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
   	</dependency>
+  	
+    <!-- 阿里大于短信平台 -->
+	<dependency>
+	  <groupId>com.aliyun</groupId>
+	  <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+	</dependency>
+	<dependency>
+	  <groupId>com.aliyun</groupId>
+	  <artifactId>aliyun-java-sdk-core</artifactId>
+	</dependency>
+  	
     <dependency>
     	<groupId>com.blogforum</groupId>
     	<artifactId>blogforum-sso-dao</artifactId>
