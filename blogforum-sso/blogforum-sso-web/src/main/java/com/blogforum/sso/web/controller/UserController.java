@@ -1,38 +1,35 @@
 package com.blogforum.sso.web.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.blogforum.common.tools.blogforumResult;
-import com.blogforum.sso.common.exception.SSOBusinessException;
 import com.blogforum.sso.pojo.entity.User;
-import com.blogforum.sso.service.loginregistration.LoginRegistrationFactory;
-import com.blogforum.sso.service.userservice.UserService;
+import com.blogforum.sso.service.loginregistration.LoginRegisterContext;
+import com.blogforum.sso.service.loginregistration.LoginRegisterFactory;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
-	
+
 	@Autowired
-	private UserService userService;
-	
-	@Autowired
-	private LoginRegistrationFactory abstractLoginRegistrationFactory;
-	
-	@RequestMapping("/adduser")
-	public void addUser(){
-		userService.addUser();
-		throw new SSOBusinessException("错误");
+	private LoginRegisterFactory	abstractLoginRegisterFactory;
+
+	@PostMapping("/loginregister")
+	public blogforumResult loginregister(String cmCode, User user, String verificationCode,
+						HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+		//设置上下文
+		LoginRegisterContext context = new LoginRegisterContext();
+		context.setUser(user);
+		context.setVerificationCode(verificationCode);
+		context.setHttpServletRequest(httpServletRequest);
+		context.setHttpServletResponse(httpServletResponse);
+		return abstractLoginRegisterFactory.manager(cmCode).execute(context);
 	}
-	
-	@RequestMapping("/loginregistration")
-	public blogforumResult loginregistration(String cmCode,User user){
-		return abstractLoginRegistrationFactory.manager(cmCode).execute(user);
-	}
-	
-	
 
 }

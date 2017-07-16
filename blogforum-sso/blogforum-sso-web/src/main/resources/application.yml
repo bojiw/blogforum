@@ -1,13 +1,13 @@
 server:
     #项目启动端口
     port: 80
-    tomcat:
+    tomcat: 
       # tomcat的URI编码
       uri-encoding: utf-8
       # tomcat最大线程数，默认为200
       max-threads: 1000
-spring:
-        
+      
+spring: 
     datasource:
         # 使用druid数据源
         type: com.alibaba.druid.pool.DruidDataSource
@@ -74,7 +74,13 @@ mybatis:
     
     
 #sso服务器地址
-ssoServiceUrl: http://119.23.247.225:8011
+myValue: 
+  ssoServiceUrl: http://119.23.247.225:8011
+  #session过期时间
+  session_time: 1800
+  #注册时保存到redis的值
+  REGISTER_KEY: register_key
+
 
 
 

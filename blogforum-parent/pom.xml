@@ -17,7 +17,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 		<mybatis.paginator.version>1.2.15</mybatis.paginator.version>
 		<mysql.version>5.1.32</mysql.version>
 		<slf4j.version>1.6.4</slf4j.version>
-		<jackson.version>2.4.2</jackson.version>
+		<jackson.version>2.8.8</jackson.version>
 		<druid.version>0.2.26</druid.version>
 		<httpclient.version>4.3.5</httpclient.version>
 		<jstl.version>1.2</jstl.version>
@@ -252,4 +252,17 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 			</plugins>
 		</pluginManagement>
 	</build>
+	
+	<distributionManagement>
+	  <repository>
+	    <id>releases</id>
+	    <url>http://119.23.247.225:8081/nexus/content/repositories/releases</url>
+	  </repository>
+	  <snapshotRepository>
+	    <id>snapshots</id>
+	    <url>http://119.23.247.225:8081/nexus/content/repositories/snapshots</url>
+	  </snapshotRepository>
+	</distributionManagement>
+	
+	
 </project>

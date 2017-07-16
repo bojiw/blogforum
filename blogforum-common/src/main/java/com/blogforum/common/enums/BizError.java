@@ -12,6 +12,8 @@ public enum BizError {
 	//常规异常
 	/**加密失败*/
 	FAIL_ENCODE("601","加密失败"),
+	/**常规错误*/
+	ROUTINE_ERROR("602","常规错误"),
 	
 
 	
@@ -32,6 +34,8 @@ public enum BizError {
 	ILLEGAL_PARAMETER("706","非法参数"),
 	/**用户名密码错误*/
 	FAIL_USERPWD("707","用户名密码错误");
+	
+	
 
 	private String	code;
 	private String	msg;

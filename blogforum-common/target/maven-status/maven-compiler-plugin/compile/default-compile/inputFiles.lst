@@ -1,4 +1,3 @@
-E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\UUIDCreateUtile.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\enums\BizError.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\CookieUtils.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\JsonUtils.java
@@ -9,3 +8,4 @@ E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\exception\BusinessException.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\TimeUtils.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\enums\RoleEnum.java
+E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\UUIDCreateUtils.java

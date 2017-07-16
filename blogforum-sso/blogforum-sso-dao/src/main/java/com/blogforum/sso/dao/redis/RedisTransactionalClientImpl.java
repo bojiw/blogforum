@@ -10,7 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.RedisSystemException;
 import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +27,7 @@ import com.blogforum.sso.common.exception.SSOBusinessException;
 @Component("redisTransactionalClient")
 public class RedisTransactionalClientImpl implements RedisClient {
 	@Resource
-	private RedisTemplate<String, ?> redisTemplateTransactional;
+	private StringRedisTemplate redisTemplateTransactional;
 
 	@Override
 	public Boolean set(final String key, final String value) {

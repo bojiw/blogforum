@@ -30,13 +30,30 @@
 		
 	</insert>
 	
-	<select id="getByUserPwdName" parameterType="com.blogforum.sso.pojo.entity.User">
+	<select id="getUserByPwdName" parameterType="com.blogforum.sso.pojo.entity.User" resultType="com.blogforum.sso.pojo.entity.User">
 	    select 
 	    <include refid="user"/>
-	    form user u
+	    from user u
 	    where
 	    username = #{username} and password = #{password}
 	    
+	</select>
+	
+	<select id="getUserByName" parameterType="com.blogforum.sso.pojo.entity.User" resultType="com.blogforum.sso.pojo.entity.User">
+	    select 
+	    u.salt,
+	    <include refid="user"/>
+	    from user u
+	    where
+	    username = #{username}
+	    
+	</select>
+	<select id="getUserByEmailORIphone" parameterType="com.blogforum.sso.pojo.entity.User" resultType="com.blogforum.sso.pojo.entity.User">
+	    select
+	    <include refid="user"/>
+	    from user u
+	    where
+	    email = #{email} or iphone = #{iphone}
 	</select>
 	
 	

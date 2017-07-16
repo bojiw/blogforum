@@ -46,8 +46,8 @@ public class RedisConfig {
      * @return
      */
     @Bean(name = "redisTemplateTransactional")
-    public RedisTemplate<?, ?> getRedisTemplateTransactional(){  
-        RedisTemplate<?,?> template = new StringRedisTemplate(getConnectionFactory());  
+    public StringRedisTemplate getRedisTemplateTransactional(){  
+    	StringRedisTemplate template = new StringRedisTemplate(getConnectionFactory());  
         template.setEnableTransactionSupport(true);
         return template;  
     }  

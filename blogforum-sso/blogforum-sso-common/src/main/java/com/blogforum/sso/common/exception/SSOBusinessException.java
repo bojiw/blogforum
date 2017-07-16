@@ -2,6 +2,7 @@ package com.blogforum.sso.common.exception;
 
 
 import com.blogforum.common.enums.BizError;
+import com.blogforum.sso.common.enums.SSOBizError;
 
 /**
  * 自定义业务异常类
@@ -22,7 +23,7 @@ public class SSOBusinessException extends RuntimeException {
 	 */
 	public SSOBusinessException(String message) {
 		super(message);
-		this.code = "705";
+		this.code = "602";
 	}
 
 	public SSOBusinessException(String code, String message) {
@@ -42,7 +43,14 @@ public class SSOBusinessException extends RuntimeException {
 		super(bizError.getMsg());
 		this.code = bizError.getCode();
 	}
-	
+	public SSOBusinessException(SSOBizError ssobizError,Exception e){
+		super(ssobizError.getMsg(),e);
+		this.code = ssobizError.getCode();
+	}
+	public SSOBusinessException(SSOBizError ssobizError){
+		super(ssobizError.getMsg());
+		this.code = ssobizError.getCode();
+	}
 	public String getCode() {
 		return code;
 	}
