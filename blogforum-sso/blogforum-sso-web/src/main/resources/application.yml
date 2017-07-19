@@ -44,7 +44,7 @@ spring:
     #redis
     redis: 
       # Redis服务器地址
-      hostName: 119.23.247.225
+      hostName: 127.0.0.1
       # Redis服务器连接端口
       port: 6379
       # Redis服务器连接密码
@@ -67,6 +67,11 @@ spring:
       username: blogwangwendi@126.com
       password: qaz123456
       default-encoding: UTF-8
+      #设置通信端口为465加密端口
+      port: 465
+      properties:
+      #使用ssl加密设置
+        mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
         
 mybatis:
     type-aliases-package: com.blogforum.sso.pojo.entity
