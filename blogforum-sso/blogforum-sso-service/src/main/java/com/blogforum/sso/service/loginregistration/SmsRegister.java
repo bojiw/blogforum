@@ -26,7 +26,7 @@ public class SmsRegister extends AbstractLoginRegister {
 	protected void checkSmsValue(User user, String verificationcode) {
 		super.checkSmsValue(user, verificationcode);
 		//效验验证码是否正确
-		String code = redisClient.get(user.getIphone());
+		String code = redisClient.get(REGISTER_KEY + ":" + user.getIphone());
 		if (!StringUtils.equals(code, verificationcode)) {
 			throw new SSOBusinessException(SSOBizError.VECODE_ERROR);
 		}

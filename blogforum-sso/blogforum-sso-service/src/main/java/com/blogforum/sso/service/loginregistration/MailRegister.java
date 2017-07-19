@@ -26,7 +26,7 @@ public class MailRegister extends AbstractLoginRegister {
 	protected void checkMailValue(User user, java.lang.String verificationcode) {
 		super.checkMailValue(user, verificationcode);
 		//验证验证码是否正确
-		String code = redisClient.get(user.getEmail());
+		String code = redisClient.get(REGISTER_KEY + ":" + user.getEmail());
 		if (!StringUtils.equals(code, verificationcode)) {
 			throw new SSOBusinessException(SSOBizError.VECODE_ERROR);
 		}

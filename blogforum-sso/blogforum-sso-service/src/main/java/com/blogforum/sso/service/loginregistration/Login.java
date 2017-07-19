@@ -21,10 +21,12 @@ public class Login extends AbstractLoginRegister {
 	public blogforumResult execute(LoginRegisterContext context) {
 		//获取token 判断用户是否已经登录
 		String token = CookieUtils.getCookie(context.getHttpServletRequest(), ServiceConstant.cookieToken);
-		String userJSON = redisClient.get(token);
-		if (StringUtils.isNotBlank(userJSON)) {
-			redisClient.expire(token, SESSION_TIME);
-			return blogforumResult.ok();
+		if (StringUtils.isNotBlank(token)) {
+			String userJSON = redisClient.get(token);
+			if (StringUtils.isNotBlank(userJSON)) {
+				redisClient.expire(token, SESSION_TIME);
+				return blogforumResult.ok();
+			}
 		}
 		User user = context.getUser();
 		super.checkUserPwd(user);
@@ -32,6 +34,7 @@ public class Login extends AbstractLoginRegister {
 		isUserAndsetSession(user, context.getHttpServletResponse());
 		return blogforumResult.ok();
 	}
+	
 	
 	/**
 	 * 判断用户名密码是否正确

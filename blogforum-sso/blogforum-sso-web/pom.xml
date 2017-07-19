@@ -62,5 +62,25 @@
       	<optional>true</optional>
       </dependency>
   </dependencies>
-  
+  <!-- 打包成jar包 -->
+	<build>
+	    <plugins>
+	        <plugin>
+	            <groupId>org.springframework.boot</groupId>
+	            <artifactId>spring-boot-maven-plugin</artifactId>
+	            <configuration>
+	            <!-- 启动类 -->
+	                <mainClass>com.blogforum.sso.Starter</mainClass>
+	            </configuration>
+	            <executions>
+	                <execution>
+	                    <goals>
+	                        <goal>repackage</goal>
+	                    </goals>
+	                </execution>
+	            </executions>
+	        </plugin>
+	    </plugins>
+	</build>
+
 </project>

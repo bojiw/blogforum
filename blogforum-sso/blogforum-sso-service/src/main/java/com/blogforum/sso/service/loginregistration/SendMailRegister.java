@@ -29,7 +29,7 @@ public class SendMailRegister extends AbstractLoginRegister {
 		//获取验证码
 		String verificationCode = getVerificationCodeAndSetExRedis(user.getEmail());
 		//发送邮件  传入接收邮件人 邮件主题  邮件内容
-		simpleMailSend.send(user.getEmail(), ServiceConstant.subject, buildMailInfo(verificationCode),null);
+		simpleMailSend.send(user.getEmail(), ServiceConstant.subject, buildMailInfo(verificationCode,user.getEmail()),null);
 		return blogforumResult.ok();
 
 	}
@@ -40,10 +40,10 @@ public class SendMailRegister extends AbstractLoginRegister {
 	 * @param user
 	 * @return
 	 */
-	private String buildMailInfo(String verificationCode) {
+	private String buildMailInfo(String verificationCode,String email) {
 		StringBuffer mailInfo = new StringBuffer();
 		mailInfo.append("注册码为:  ").append(verificationCode).append("。");
-		logger.info(MessageFormat.format("成功发送邮件，邮箱为:{0},邮件内容为{1}", verificationCode,mailInfo.toString()));
+		logger.info(MessageFormat.format("成功发送邮件，邮箱为:{0},邮件内容为{1}", email,mailInfo.toString()));
 		return mailInfo.toString();
 
 	}

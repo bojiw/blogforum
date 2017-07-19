@@ -36,7 +36,7 @@ public abstract class AbstractLoginRegister implements LoginRegister {
 
 	/** 注册时保存到redis的值 */
 	@Value("${myValue.REGISTER_KEY}")
-	private String			REGISTER_KEY;
+	protected String			REGISTER_KEY;
 
 	/** session开头key */
 	@Value("$myValue.session_key")

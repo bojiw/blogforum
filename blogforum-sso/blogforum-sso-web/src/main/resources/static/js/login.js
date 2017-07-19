@@ -3,12 +3,12 @@
 //键盘回车会执行.block类的点击事件
 	$(document).keyup(function(event){
 	  if(event.keyCode ==13){
-		$(".block").trigger("click");
+		$("#login").trigger("click");
 	  }
 	});
 
 
-	$(".block").click(function(){
+	$("#login").click(function(){
 		var name = $.trim($("[name = 'username']").val());
 		if(name == ""){
 			layer.tips('用户名未填写!','[name = "username"]',{tips:[2,"#3595CC"]});

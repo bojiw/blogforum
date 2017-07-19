@@ -32,7 +32,7 @@ public class LoginRegisterFactoryConfig {
 		//设置工厂中的bean
 		manager.put("sendMailRegister", sendMailRegister);
 		manager.put("sendSmsRegister", sendSmsRegister);
-		manager.put("mailRegistrer", mailRegister);
+		manager.put("mailRegister", mailRegister);
 		manager.put("smsRegister", smsRegister);
 		manager.put("login", login);
 		abstractLoginRegistrationFactory.setManager(manager);
