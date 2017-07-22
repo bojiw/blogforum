@@ -10,19 +10,19 @@ public class Area {
 	/**
 	 * 编号
 	 */
-	private int id;
+	public int id;
 	/**
 	 * 区域名
 	 */
-	private String name;
+	public String name;
 	/**
 	 * 上级id
 	 */
-	private int parentId;
+	public int parentId;
 	/**
 	 * 删除标记 N为不删除 Y为删除
 	 */
-	private String delFlag;
+	public String delFlag;
 
 	public int getId() {
 		return id;

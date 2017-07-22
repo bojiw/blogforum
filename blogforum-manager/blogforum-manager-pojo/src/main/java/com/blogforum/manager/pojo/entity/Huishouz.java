@@ -12,65 +12,65 @@ public class Huishouz {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 笔记标题
 	 */
-	private String noteTitle;
+	public String noteTitle;
 	/**
 	 * 笔记内容
 	 */
-	private String noteBody;
+	public String noteBody;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
 	/**
 	 * 用户id
 	 */
-	private String userId;
+	public String userId;
 	/**
 	 * 笔记本id
 	 */
-	private String notebookId;
+	public String notebookId;
 	/**
 	 * 博客笔记id
 	 */
-	private String blogId;
+	public String blogId;
 	/**
 	 * 附件路径
 	 */
-	private String enclosure;
+	public String enclosure;
 	/**
 	 * 存放图片路径
 	 */
-	private String image;
+	public String image;
 	/**
 	 * 图片文字
 	 */
-	private String imagetext;
+	public String imagetext;
 	/**
 	 * 删除标记 N为不删除 Y为删除
 	 */
-	private String delFlag;
+	public String delFlag;
 	/**
 	 * 加密共享笔记id
 	 */
-	private String pwdShareId;
+	public String pwdShareId;
 
 	/**
 	 * 缩略图图片路径
 	 */
-	private String smallImage;
+	public String smallImage;
 
 	/**
 	 * 标签,用;隔开
 	 */
-	private String label;
+	public String label;
 
 	public String getId() {
 		return id;

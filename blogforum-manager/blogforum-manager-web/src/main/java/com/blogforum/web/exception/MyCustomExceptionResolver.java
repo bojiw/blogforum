@@ -39,7 +39,7 @@ public class MyCustomExceptionResolver implements HandlerExceptionResolver {
 			if (exception instanceof BusinessException) {
 				map.put("status", ((BusinessException) exception).getCode());
 				map.put("msg", exception.getMessage());
-				logger.error(exception.getMessage(), exception);
+
 			} else {
 				map.put("status", BizError.SYS_EXCEPTION.getCode());
 				map.put("msg", BizError.SYS_EXCEPTION.getMsg());
@@ -59,7 +59,6 @@ public class MyCustomExceptionResolver implements HandlerExceptionResolver {
 				if (exception instanceof BusinessException) {
 					map.put("status", ((BusinessException) exception).getCode());
 					map.put("msg", exception.getMessage());
-					logger.error(exception.getMessage(), exception);
 				} else {
 					map.put("status", BizError.SYS_EXCEPTION.getCode());
 					map.put("msg", BizError.SYS_EXCEPTION.getMsg());

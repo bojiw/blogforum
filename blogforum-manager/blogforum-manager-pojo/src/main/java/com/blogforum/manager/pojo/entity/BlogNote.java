@@ -13,44 +13,44 @@ public class BlogNote {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 笔记
 	 */
-	private Note note;
+	public Note note;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
 	/**
 	 * 评论数量
 	 */
-	private int commentNum;
+	public int commentNum;
 	/**
 	 * 最后回复时间
 	 */
-	private Date lasttime;
+	public Date lasttime;
 	/**
 	 * 最后回复人
 	 */
-	private String lastUserid;
+	public String lastUserid;
 	/**
 	 * 是否发布 N为不发布 Y为发布
 	 */
-	private String releaseFlat;
+	public String releaseFlat;
 	/**
 	 * 访问次数
 	 */
-	private int visit;
+	public int visit;
 
 	/**
 	 * 评论内容
 	 */
-	private List<BlogComment> blogComments;
+	public List<BlogComment> blogComments;
 
 	public String getId() {
 		return id;

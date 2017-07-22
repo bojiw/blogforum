@@ -1,9 +1,10 @@
-package com.blogforum.manager.pojo.entity;
+package com.blogforum.dao.mapper;
 
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.blogforum.manager.pojo.entity.User;
 import com.blogforum.manager.pojo.page.Page;
 
 /**

@@ -13,109 +13,109 @@ public class User {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 登录用户名
 	 */
-	private String username;
+	public String username;
 	/**
 	 * 密码
 	 */
-	private String password;
+	public String password;
 	/**
 	 * 加盐
 	 */
-	private String salt;
+	public String salt;
 	/**
 	 * 角色
 	 */
-	private int role;
+	public int role;
 	/**
 	 * Email邮件
 	 */
-	private String email;
+	public String email;
 	/**
 	 * 手机号
 	 */
-	private String iphone;
+	public String iphone;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
 	/**
 	 * 最后登录时间
 	 */
-	private Date loginDate;
+	public Date loginDate;
 	/**
 	 * 最后登录ip
 	 */
-	private String loginIp;
+	public String loginIp;
 	/**
 	 * 状态 0为正常 1为无法登录 2为删除状态
 	 */
-	private int status = 0;
+	public int status = 0;
 	/**
 	 * 头像路径
 	 */
-	private String image;
+	public String image;
 	/**
 	 * 更新人
 	 */
-	private String updateBy;
+	public String updateBy;
 	/**
 	 * 备注信息
 	 */
-	private String remarks;
+	public String remarks;
 	/**
 	 * 所在省份
 	 */
-	private Area provinceLocation;
+	public Area provinceLocation;
 	/**
 	 * 所在城市
 	 */
-	private Area cityLocation;
+	public Area cityLocation;
 	/**
 	 * 出生省份
 	 */
-	private Area birthProvince;
+	public Area birthProvince;
 	/**
 	 * 出生城市
 	 */
-	private Area birthCity;
+	public Area birthCity;
 
 	/**
 	 * 博客访问历史记录
 	 */
-	private List<UserBlogHistory> userBlogHistorys;
+	public List<UserBlogHistory> userBlogHistorys;
 
 	/**
 	 * 笔记本
 	 */
-	private List<NoteBook> noteGroups;
+	public List<NoteBook> noteGroups;
 
 	/**
 	 * 笔记
 	 */
-	private List<Note> notes;
+	public List<Note> notes;
 
 	/**
 	 * 创建的公共笔记
 	 */
-	private List<PublicNote> publicNotes;
+	public List<PublicNote> publicNotes;
 
 	/**
 	 * 加密的访问笔记
 	 */
-	private List<PwdShareNode> pwdShareNodes;
+	public List<PwdShareNode> pwdShareNodes;
 
 	/**
 	 * 发表的评论
 	 */
-	private List<Reply> replies;
+	public List<Reply> replies;
 
 	public String getId() {
 		return id;

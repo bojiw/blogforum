@@ -10,15 +10,15 @@ public class PublicNodeUser {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 用户id
 	 */
-	private String userId;
+	public String userId;
 	/**
 	 * 公共笔记id
 	 */
-	private String publicnoteId;
+	public String publicnoteId;
 
 	public String getId() {
 		return id;

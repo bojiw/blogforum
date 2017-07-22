@@ -1,4 +1,4 @@
-package com.blogforum.manager.pojo.entity;
+package com.blogforum.dao.mapper;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;

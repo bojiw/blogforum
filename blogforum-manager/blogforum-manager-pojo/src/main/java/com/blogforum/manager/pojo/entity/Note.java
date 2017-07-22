@@ -12,68 +12,68 @@ public class Note {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 笔记标题
 	 */
-	private String noteTitle;
+	public String noteTitle;
 	/**
 	 * 笔记内容
 	 */
-	private String noteBody;
+	public String noteBody;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
 	/**
 	 * 用户
 	 */
-	private User user;
+	public User user;
 	/**
 	 * 笔记本
 	 */
-	private NoteBook noteBook;
+	public NoteBook noteBook;
 
 	/**
 	 * 附件路径
 	 */
-	private String enclosure;
+	public String enclosure;
 	/**
 	 * 存放图片路径
 	 */
-	private String image;
+	public String image;
 	/**
 	 * 图片文字
 	 */
-	private String imagetext;
+	public String imagetext;
 	/**
 	 * 删除标记 N为不删除 Y为删除
 	 */
-	private String delFlag;
+	public String delFlag;
 
 	/**
 	 * 缩略图图片路径
 	 */
-	private String smallImage;
+	public String smallImage;
 
 	/**
 	 * 标签,用;隔开
 	 */
-	private String label;
+	public String label;
 
 	/**
 	 * 博客笔记
 	 */
-	private BlogNote blogNote;
+	public BlogNote blogNote;
 
 	/**
 	 * 加密的访问笔记
 	 */
-	private PwdShareNode pwdShareNode;
+	public PwdShareNode pwdShareNode;
 
 	public String getId() {
 		return id;

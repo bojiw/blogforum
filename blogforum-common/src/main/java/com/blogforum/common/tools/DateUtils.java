@@ -1,3 +1,115 @@
-<?xml version="1.0" encoding="ASCII"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_7RWw4GyYEeeJM5I0E9CJIg" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_7RWw4WyYEeeJM5I0E9CJIg" bindingContexts="_7RYodWyYEeeJM5I0E9CJIg">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.wst.html.core.htmlsource.source&quot; name=&quot;login.html&quot; tooltip=&quot;blogforum-sso-web/src/main/resources/static/login.html&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-web/src/main/resources/static/login.html&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.m2e.editor.MavenPomEditor&quot; name=&quot;pom.xml&quot; tooltip=&quot;blogforum-parent/pom.xml&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-parent/pom.xml&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;Starter.java&quot; tooltip=&quot;blogforum-sso-web/src/main/java/com/blogforum/sso/Starter.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-web/src/main/java/com/blogforum/sso/Starter.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SendMailRegister.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/SendMailRegister.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/SendMailRegister.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LoginRegisterFactoryConfig.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/LoginRegisterFactoryConfig.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/LoginRegisterFactoryConfig.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LoginRegisterFactoryImpl.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/LoginRegisterFactoryImpl.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/LoginRegisterFactoryImpl.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;MailRegister.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/MailRegister.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/MailRegister.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;SmsRegister.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/SmsRegister.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/blogforum-sso-service/src/main/java/com/blogforum/sso/service/loginregistration/SmsRegister.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;AbstractLoginRegister.java&quot; tooltip=&quot;blogforum-sso-service/src/main/java/com/blogforum/sso/service/logi
+package com.blogforum.common.tools;
+
+import java.text.ParseException;
+import java.util.Date;
+import org.apache.commons.lang3.time.DateFormatUtils;
+
+public class DateUtils
+  extends org.apache.commons.lang3.time.DateUtils
+{
+  private static String[] parsePatterns = { "yyyy-MM-dd", "yyyy-MM-dd HH:mm:ss", "yyyy-MM-dd HH:mm", "yyyy-MM", "yyyy/MM/dd", "yyyy/MM/dd HH:mm:ss", "yyyy/MM/dd HH:mm", "yyyy/MM", "yyyy.MM.dd", "yyyy.MM.dd HH:mm:ss", "yyyy.MM.dd HH:mm", "yyyy.MM" };
+  
+  public static String getDate()
+  {
+    return getDate("yyyy-MM-dd");
+  }
+  
+  public static String getDate(String pattern)
+  {
+    return DateFormatUtils.format(new Date(), pattern);
+  }
+  
+  public static String formatDate(Date date, Object... pattern)
+  {
+    String formatDate = null;
+    if ((pattern != null) && (pattern.length > 0)) {
+      formatDate = DateFormatUtils.format(date, pattern[0].toString());
+    } else {
+      formatDate = DateFormatUtils.format(date, "yyyy-MM-dd");
+    }
+    return formatDate;
+  }
+  
+  public static String formatDateTime(Date date)
+  {
+    return formatDate(date, new Object[] { "yyyy-MM-dd HH:mm:ss" });
+  }
+  
+  public static String getTime()
+  {
+    return formatDate(new Date(), new Object[] { "HH:mm:ss" });
+  }
+  
+  public static String getDateTime()
+  {
+    return formatDate(new Date(), new Object[] { "yyyy-MM-dd HH:mm:ss" });
+  }
+  
+  public static String getYear()
+  {
+    return formatDate(new Date(), new Object[] { "yyyy" });
+  }
+  
+  public static String getMonth()
+  {
+    return formatDate(new Date(), new Object[] { "MM" });
+  }
+  
+  public static String getDay()
+  {
+    return formatDate(new Date(), new Object[] { "dd" });
+  }
+  
+  public static String getWeek()
+  {
+    return formatDate(new Date(), new Object[] { "E" });
+  }
+  
+  public static Date parseDate(Object str)
+  {
+    if (str == null) {
+      return null;
+    }
+    try
+    {
+      return parseDate(str.toString(), parsePatterns);
+    }
+    catch (ParseException e) {}
+    return null;
+  }
+  
+  public static long pastDays(Date date)
+  {
+    long t = new Date().getTime() - date.getTime();
+    return t / 86400000L;
+  }
+  
+  public static long pastHour(Date date)
+  {
+    long t = new Date().getTime() - date.getTime();
+    return t / 3600000L;
+  }
+  
+  public static long pastMinutes(Date date)
+  {
+    long t = new Date().getTime() - date.getTime();
+    return t / 60000L;
+  }
+  
+  public static String formatDateTime(long timeMillis)
+  {
+    long day = timeMillis / 86400000L;
+    long hour = timeMillis / 3600000L - day * 24L;
+    long min = timeMillis / 60000L - day * 24L * 60L - hour * 60L;
+    long s = timeMillis / 1000L - day * 24L * 60L * 60L - hour * 60L * 60L - min * 60L;
+    long sss = timeMillis - day * 24L * 60L * 60L * 1000L - hour * 60L * 60L * 1000L - min * 60L * 1000L - s * 1000L;
+    return (day > 0L ? day + "," : "") + hour + ":" + min + ":" + s + "." + sss;
+  }
+  
+  public static double getDistanceOfTwoDate(Date before, Date after)
+  {
+    long beforeTime = before.getTime();
+    long afterTime = after.getTime();
+    return (afterTime - beforeTime) / 86400000L;
+  }
+}

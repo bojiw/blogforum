@@ -9,32 +9,32 @@ import java.util.Date;
  ***********************************************************************/
 
 /** 管理员用户表 */
-public class AdminUser extends DataEntity {
+public class AdminUser {
 	/**
 	 * 编号
 	 */
-	private int id;
+	public int id;
 	/**
 	 * 登录用户名
 	 */
-	private String username;
+	public String username;
 	/**
 	 * 密码
 	 */
-	private String password;
+	public String password;
 	/**
 	 * 加盐
 	 */
-	private String salt;
+	public String salt;
 	/**
 	 * 角色
 	 */
-	private Role role;
+	public Role role;
 
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 
 	public int getId() {
 		return id;

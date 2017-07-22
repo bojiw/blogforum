@@ -11,23 +11,23 @@
         r.id r_id,
         r.name name
     </sql>
-    <resultMap id="AdminUserResult" type="com.blogforum.manager.pojo.entity.AdminUser">
+    <resultMap id="AdminUserResult" type="blogforum.manager.pojo.entity.AdminUser">
         <id property="id" column="id" />
         <result property="username" column="username" />
         <result property="createDate" column="createDate" />
-        	<association property="role" javaType="com.blogforum.manager.pojo.entity.Role">
+        	<association property="role" javaType="blogforum.manager.pojo.entity.Role">
 		        <id property="id" column="r_id" />
 		        <result property="name" column="name" />
 	        </association>
     </resultMap>
     
     <!-- 添加用户 -->
-	<insert id="insert" parameterType="com.blogforum.manager.pojo.entity.AdminUser">
+	<insert id="insert" parameterType="blogforum.manager.pojo.entity.AdminUser">
 		insert into admin_user(username,password,salt,role,create_date) values (#{username},#{password},#{salt},#{roleId},#{createDate})
 	</insert>
 	
 	<!-- 根据用户名查询 -->
-	<select id="getByUserName" resultType="com.blogforum.manager.pojo.entity.AdminUser">
+	<select id="getByUserName" resultType="blogforum.manager.pojo.entity.AdminUser">
 	    select id,salt
 	    from admin_user
 	    where
@@ -35,7 +35,7 @@
 	</select>
 	
 	<!-- 通过用户名密码查询用户  -->
-	<select id="getByUserPwd" parameterType="com.blogforum.manager.pojo.entity.AdminUser" resultMap="AdminUserResult">
+	<select id="getByUserPwd" parameterType="blogforum.manager.pojo.entity.AdminUser" resultMap="AdminUserResult">
 	    select 
 	    <include refid="AdminUserColumns"/>
 	    from admin_user a

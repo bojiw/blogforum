@@ -12,19 +12,19 @@ public class UserBlogHistory {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 用户
 	 */
-	private User user;
+	public User user;
 	/**
 	 * 博客笔记
 	 */
-	private BlogNote blogNote;
+	public BlogNote blogNote;
 	/**
 	 * 访问时间
 	 */
-	private Date createDate;
+	public Date createDate;
 
 	public String getId() {
 		return id;

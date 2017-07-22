@@ -10,10 +10,10 @@ public class RolePermision {
 	/**
 	 * 编号
 	 */
-	private long id;
+	public long id;
 
-	private int roleId;
-	private int permisionId;
+	public int roleId;
+	public int permisionId;
 
 	public long getId() {
 		return id;

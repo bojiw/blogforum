@@ -12,27 +12,27 @@ public class Visitor {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 用户
 	 */
-	private User user;
+	public User user;
 	/**
 	 * 访问开始时间
 	 */
-	private Date visitDate;
+	public Date visitDate;
 	/**
 	 * 访问结束时间
 	 */
-	private Date leftDate;
+	public Date leftDate;
 	/**
 	 * 访问ip地址
 	 */
-	private String ip;
+	public String ip;
 	/**
 	 * 访问客户端设备
 	 */
-	private String client;
+	public String client;
 
 	public String getId() {
 		return id;

@@ -12,27 +12,27 @@ public class Reply {
 	/**
 	 * 编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 用户编号
 	 */
-	private User user;
+	public User user;
 	/**
 	 * 博客笔记编号
 	 */
-	private BlogNote blognode;
+	public BlogNote blognode;
 	/**
 	 * 评论内容
 	 */
-	private String content;
+	public String content;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 是否发布 N为不发布 Y为发布
 	 */
-	private String releaseFlat;
+	public String releaseFlat;
 
 	public String getId() {
 		return id;

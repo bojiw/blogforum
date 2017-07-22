@@ -13,37 +13,37 @@ public class NoteBook {
 	/**
 	 * 笔记本编号
 	 */
-	private String id;
+	public String id;
 	/**
 	 * 父类目ID=0时，代表的是一级的类目
 	 */
-	private String parentId;
+	public String parentId;
 	/**
 	 * 笔记本名称
 	 */
-	private String name;
+	public String name;
 	/**
 	 * 创建笔记本的用户id
 	 */
-	private User user;
+	public User user;
 	/**
 	 * 创建时间
 	 */
-	private Date createDate;
+	public Date createDate;
 	/**
 	 * 更新时间
 	 */
-	private Date updateDate;
+	public Date updateDate;
 
 	/**
 	 * 笔记
 	 */
-	private List<Note> notes;
+	public List<Note> notes;
 
 	/**
 	 * 公共笔记
 	 */
-	private List<PublicNote> publicNotes;
+	public List<PublicNote> publicNotes;
 
 	public String getId() {
 		return id;
