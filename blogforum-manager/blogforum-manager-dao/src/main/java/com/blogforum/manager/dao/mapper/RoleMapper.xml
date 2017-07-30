@@ -2,12 +2,12 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.blogforum.dao.mapper.RoleMapper">
+<mapper namespace="com.blogforum.manager.dao.mapper.RoleMapper">
 
     <sql id="RoleColumns">
 		temp.id id,
 		temp.`name` `name`,
-		create_by,
+		create_user,
 		create_date,
 		update_date,
 		remarks,
@@ -20,7 +20,7 @@
     <sql id="RoleTemp">
         r.id id,
         'name',
-        create_by,
+        create_user,
 		create_date,
 		update_date,
 		remarks,
@@ -28,15 +28,15 @@
 		permision_id
     </sql>
     
-    <resultMap id="RoleResult" type="blogforum.manager.pojo.entity.Role">
+    <resultMap id="RoleResult" type="com.blogforum.manager.pojo.entity.Role">
         <id property="id" column="id" />
         <result property="name" column="name" />
-        <result property="createBy" column="create_by" />
+        <result property="createUser" column="create_user" />
         <result property="createDate" column="create_date" />
         <result property="updateDate" column="update_date" />
         <result property="remarks" column="remarks" />
         <result property="delFlag" column="del_flag" />
-        <collection property="permisions" ofType="com.blogforum.entity.Permision">
+        <collection property="permisions" ofType="com.blogforum.manager.pojo.entity.Permision">
             <id property="id" column="pid" />
         	<result property="name" column="pname" />
         	<result property="controller" column="controller" />
@@ -45,10 +45,10 @@
     </resultMap>
     
     <!-- 添加角色 -->
-	<insert id="insert" parameterType="blogforum.manager.pojo.entity.Role">
+	<insert id="insert" parameterType="com.blogforum.manager.pojo.entity.Role">
 		insert into 
 		admin_user(
-			name,create_by,create_date,update_date,remarks,del_flag
+			name,create_user,create_date,update_date,remarks,del_flag
 		) 
 		values (
 			#{name},#{createBy},#{createDate},#{updateDate},#{remarks},#{delFlag}

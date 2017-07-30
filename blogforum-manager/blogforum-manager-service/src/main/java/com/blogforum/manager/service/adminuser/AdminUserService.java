@@ -1,4 +1,4 @@
-package com.blogforum.service.adminuser;
+package com.blogforum.manager.service.adminuser;
 
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.manager.pojo.entity.AdminUser;

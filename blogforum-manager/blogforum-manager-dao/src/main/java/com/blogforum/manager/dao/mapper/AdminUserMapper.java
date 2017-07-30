@@ -1,4 +1,4 @@
-package com.blogforum.dao.mapper;
+package com.blogforum.manager.dao.mapper;
 
 import com.blogforum.manager.pojo.entity.AdminUser;
 

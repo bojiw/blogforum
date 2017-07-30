@@ -1,4 +1,4 @@
-package com.blogforum.service.adminuser.impl;
+package com.blogforum.manager.service.adminuser.impl;
 
 import java.util.Date;
 
@@ -10,9 +10,9 @@ import com.blogforum.common.enums.BizError;
 import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.common.utils.MD5SaltUtils;
-import com.blogforum.dao.mapper.AdminUserMapper;
+import com.blogforum.manager.dao.mapper.AdminUserMapper;
 import com.blogforum.manager.pojo.entity.AdminUser;
-import com.blogforum.service.adminuser.AdminUserService;
+import com.blogforum.manager.service.adminuser.AdminUserService;
 
 @Service
 public class AdminUserServiceImpl implements AdminUserService {

@@ -1,4 +1,4 @@
-package com.blogforum.web.filter;
+package com.blogforum.manager.web.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -17,7 +17,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import com.blogforum.manager.pojo.entity.AdminUser;
 import com.blogforum.manager.pojo.entity.Permision;
 import com.blogforum.manager.pojo.entity.Role;
-import com.blogforum.service.adminuser.RoleService;
+import com.blogforum.manager.service.adminuser.RoleService;
 
 @Component
 public class RealmSessionFilter extends OncePerRequestFilter {

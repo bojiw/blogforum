@@ -1,4 +1,4 @@
-package com.blogforum.web.exception;
+package com.blogforum.manager.web.exception;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.alibaba.druid.support.json.JSONUtils;
 import com.blogforum.common.enums.BizError;
 import com.blogforum.common.exception.BusinessException;
-import com.blogforum.service.adminuser.impl.AdminUserServiceImpl;
+import com.blogforum.manager.service.adminuser.impl.AdminUserServiceImpl;
 
 /**
  * 统一返回异常类

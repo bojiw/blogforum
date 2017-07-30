@@ -1,4 +1,4 @@
-package com.blogforum.web.constant;
+package com.blogforum.manager.web.constant;
 
 public class ReturnViewPage {
 	/** 首页 */

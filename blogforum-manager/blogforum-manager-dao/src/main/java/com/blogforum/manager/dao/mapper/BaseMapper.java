@@ -1,4 +1,4 @@
-package com.blogforum.dao.mapper;
+package com.blogforum.manager.dao.mapper;
 
 /**
  * Mapper层基类

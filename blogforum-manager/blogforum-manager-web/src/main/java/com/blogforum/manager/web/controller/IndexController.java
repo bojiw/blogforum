@@ -1,4 +1,4 @@
-package com.blogforum.web.controller;
+package com.blogforum.manager.web.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,19 +15,15 @@ import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.common.utils.MD5SaltUtils;
 import com.blogforum.manager.pojo.entity.AdminUser;
-import com.blogforum.service.adminuser.AdminUserService;
-import com.blogforum.service.adminuser.impl.AdminUserServiceImpl;
-import com.blogforum.service.user.UserService;
-import com.blogforum.web.constant.ReturnViewPage;
+import com.blogforum.manager.service.adminuser.AdminUserService;
+import com.blogforum.manager.service.adminuser.impl.AdminUserServiceImpl;
+import com.blogforum.manager.web.constant.ReturnViewPage;
 
 @Controller
 @RequestMapping("/")
 public class IndexController {
 	private static Logger		logger	= Logger.getLogger(AdminUserServiceImpl.class);
 
-	@Autowired
-	private UserService userService;
-	
 	
 	@Autowired
 	private AdminUserService	adminUserService;
@@ -45,7 +41,6 @@ public class IndexController {
 	public String index(HttpSession session, ModelMap modelMap) {
 		
 		AdminUser adminUser = (AdminUser) session.getAttribute("adminuser");
-		modelMap.addAttribute("userCount", userService.getCount());
 		modelMap.addAttribute("adminUserName", adminUser.getUsername());
 		return ReturnViewPage.index;
 	}
@@ -81,7 +76,7 @@ public class IndexController {
 	 * @date 2017年3月19日上午12:07:40
 	 * @version V1.0
 	 */
-	@RequestMapping("loginout.action")
+	@RequestMapping("/loginout.action")
 	public String Index(HttpSession session) {
 		session.removeAttribute("adminuser");
 		return ReturnViewPage.login;

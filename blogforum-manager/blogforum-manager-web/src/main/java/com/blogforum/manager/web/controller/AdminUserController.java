@@ -1,4 +1,4 @@
-package com.blogforum.web.controller;
+package com.blogforum.manager.web.controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -15,8 +15,8 @@ import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.manager.pojo.entity.AdminUser;
 import com.blogforum.manager.pojo.entity.Role;
-import com.blogforum.service.adminuser.AdminUserService;
-import com.blogforum.service.adminuser.impl.AdminUserServiceImpl;
+import com.blogforum.manager.service.adminuser.AdminUserService;
+import com.blogforum.manager.service.adminuser.impl.AdminUserServiceImpl;
 
 /**
  * 对管理员的操作Controller

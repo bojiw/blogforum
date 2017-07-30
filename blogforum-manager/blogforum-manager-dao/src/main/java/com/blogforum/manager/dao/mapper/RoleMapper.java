@@ -1,9 +1,15 @@
-package com.blogforum.service.adminuser;
+package com.blogforum.manager.dao.mapper;
 
 import com.blogforum.manager.pojo.entity.Role;
 
-public interface RoleService {
-	
+/**
+ * 操作管理员用户表
+ * 
+ * @author wwd
+ *
+ */
+public interface RoleMapper {
+
 	/**
 	 * 插入角色
 	 * 
@@ -13,7 +19,7 @@ public interface RoleService {
 	 * @date 2017年3月10日下午11:52:27
 	 * @version V1.0
 	 */
-	public int insert(RoleService role);
+	public int insert(Role role);
 
 	/**
 	 * 通过ID查询角色
@@ -25,15 +31,5 @@ public interface RoleService {
 	 * @version V1.0
 	 */
 	public Role getByID(int role_id);
-	
-	/**
-	 * 更新角色信息
-	 * @param role
-	 * @return
-	 * @author wwd
-	 * @date 2017年3月13日下午10:39:21
-	 * @version V1.0
-	 */
-	public int updateRole(Role role);
 
 }

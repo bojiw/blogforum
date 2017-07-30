@@ -1,4 +1,4 @@
-package com.blogforum.service.adminuser.impl;
+package com.blogforum.manager.service.adminuser.impl;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,9 +7,9 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import com.blogforum.common.enums.BizError;
-import com.blogforum.dao.mapper.RoleMapper;
+import com.blogforum.manager.dao.mapper.RoleMapper;
 import com.blogforum.manager.pojo.entity.Role;
-import com.blogforum.service.adminuser.RoleService;
+import com.blogforum.manager.service.adminuser.RoleService;
 
 @Service
 public class RoleServiceImpl implements RoleService {

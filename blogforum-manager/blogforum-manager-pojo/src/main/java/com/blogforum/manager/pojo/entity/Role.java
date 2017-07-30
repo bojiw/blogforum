@@ -21,7 +21,7 @@ public class Role {
 	/**
 	 * 创建者
 	 */
-	public String createBy;
+	public String createUser;
 	/**
 	 * 创建时间
 	 */
@@ -60,12 +60,14 @@ public class Role {
 		this.name = name;
 	}
 
-	public String getCreateBy() {
-		return createBy;
+
+
+	public String getCreateUser() {
+		return createUser;
 	}
 
-	public void setCreateBy(String createBy) {
-		this.createBy = createBy;
+	public void setCreateUser(String createUser) {
+		this.createUser = createUser;
 	}
 
 	public Date getCreateDate() {
@@ -110,7 +112,7 @@ public class Role {
 
 	@Override
 	public String toString() {
-		return "Role [id=" + id + ", name=" + name + ", createBy=" + createBy + ", createDate=" + createDate
+		return "Role [id=" + id + ", name=" + name + ", createBy=" + createUser + ", createDate=" + createDate
 				+ ", updateDate=" + updateDate + ", remarks=" + remarks + ", delFlag=" + delFlag + ", permisions="
 				+ permisions + "]";
 	}
