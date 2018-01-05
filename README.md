@@ -92,8 +92,11 @@ bootstrap、jquery 后期打算用vue.js
 阿里云、docker、nginx、jenkins、nexus
 #### 后期打算用到的技术
 kafak配合elasticsearch做日志管理系统
+
 Hadoop做用户搜索分析系统
+
 Python做爬取博客系统
+
 recat做移动端
 鹰眼做分布式跟踪系统
 异步命令框架
