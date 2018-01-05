@@ -60,6 +60,16 @@
 - - blogforum-blog-facade ---------------------博客对外接口层
 - - blogforum-blog-integration -----------------博客接入接口层
 
+## 各项目地址
+
+[单点登录系统](https://github.com/MrNiceWangwendi/blogforum-sso "单点登录系统")
+
+[笔记系统](https://github.com/MrNiceWangwendi/blogforum-notebook "笔记系统")
+
+[第三方对接系统](https://github.com/MrNiceWangwendi/blogforum-docking "第三方对接系统")
+
+[搜索系统](https://github.com/MrNiceWangwendi/blogforum-search "搜索系统")
+
 
 ## 技术选型
 #### java框架使用：
