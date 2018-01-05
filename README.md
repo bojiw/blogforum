@@ -60,3 +60,35 @@
 - - blogforum-blog-facade ---------------------博客对外接口层
 - - blogforum-blog-integration -----------------博客接入接口层
 
+
+## 技术选型
+#### java框架使用：
+spring mvc、spring、mybatis、为了学习单点登录系统使用了spring boot
+#### 数据库
+mysql
+#### 数据库中间件
+druid、后期打算上mycat
+#### 消息中间件
+rabbitmq
+#### rpc框架
+dubbo、zookeeper
+#### 搜索引擎
+solr
+#### 配置中心
+后期打算用阿波罗
+#### 富文本
+wangeditor编辑器、editor.md
+#### 图片服务器
+七牛云
+#### 图片转文字
+百度ocr识别
+#### 短信
+阿里大于
+#### 邮箱
+网易
+#### 前端
+bootstrap、jquery 后期打算用react
+#### 服务器
+阿里云、docker、nginx、jenkins、nexus
+
+
