@@ -73,7 +73,7 @@ rabbitmq
 #### rpc框架
 dubbo、zookeeper
 #### 搜索引擎
-solr
+solr、IK分词器
 #### 配置中心
 后期打算用阿波罗
 #### 富文本
@@ -87,8 +87,15 @@ wangeditor编辑器、editor.md
 #### 邮箱
 网易
 #### 前端
-bootstrap、jquery 后期打算用react
+bootstrap、jquery 后期打算用vue.js
 #### 服务器
 阿里云、docker、nginx、jenkins、nexus
+#### 后期打算用到的技术
+kafak配合elasticsearch做日志管理系统
+Hadoop做用户搜索分析系统
+Python做爬取博客系统
+recat做移动端
+鹰眼做分布式跟踪系统
+异步命令框架
 
 
