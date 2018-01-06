@@ -61,9 +61,11 @@
 - - blogforum-blog-integration -----------------博客接入接口层
 
 ## 系统架构
+
 ![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143147图片.png)
 
 ## 系统功能
+
 ![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143256图片.png)
 
 
