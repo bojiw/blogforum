@@ -60,7 +60,14 @@
 - - blogforum-blog-facade ---------------------博客对外接口层
 - - blogforum-blog-integration -----------------博客接入接口层
 
-## 各项目地址
+## 系统架构
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143147图片.png)
+
+## 系统功能
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143256图片.png)
+
+
+## 各项目详细介绍地址
 
 [单点登录系统](https://github.com/MrNiceWangwendi/blogforum-sso "单点登录系统")
 
