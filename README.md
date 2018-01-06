@@ -70,7 +70,7 @@
 
 ## 模块依赖
 
-![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816153613图片.png)
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816172822图片.png)
 
 ## 模块介绍
 #### Web模块
