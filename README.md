@@ -68,6 +68,10 @@
 
 ![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816144226图片.png)
 
+## 模块依赖
+
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816153613图片.png)
+
 
 ## 各项目详细介绍地址
 
