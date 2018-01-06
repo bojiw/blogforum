@@ -73,19 +73,19 @@
 ![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816153613图片.png)
 
 ## 模块介绍
-####Web模块
+#### Web模块
 和前端交互都通过这个模块和系统自己进行交互
-####Facade模块
+#### Facade模块
 为系统提供的门面二方包，其他系统通过这个二方包里的接口和系统进行交互
-####Service模块
+#### Service模块
 服务模块 主要处理业务逻辑 这里细分了service层和manager层 service层提供服务 manager层组装服务
-####Dao模块
+#### Dao模块
 数据库模块 主要是和数据库进行交互
-####Integration
+#### Integration
 接入第三方接口模块，主要为把其他系统提供的服务接入进来
-####Common
+#### Common
 公共工具模块，主要提供一些工具类
-####pojo
+#### pojo
 模型模块，主要为javabean
 
 ## 各项目详细介绍地址
