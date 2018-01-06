@@ -66,7 +66,7 @@
 
 ## 系统功能
 
-![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143256图片.png)
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816144226图片.png)
 
 
 ## 各项目详细介绍地址
