@@ -17,7 +17,6 @@
 	</dependencies>
 	<modules>
 		<module>blogforum-manager-pojo</module>
-
 		<module>blogforum-manager-service</module>
 		<module>blogforum-manager-web</module>
 		<module>blogforum-manager-dao</module>
