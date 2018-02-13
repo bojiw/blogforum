@@ -6,7 +6,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.blogforum.manager.dao.mapper.RoleMapper;
 import com.blogforum.manager.pojo.entity.Role;
 import com.blogforum.manager.service.adminuser.RoleService;
@@ -33,7 +33,7 @@ public class RoleServiceImpl implements RoleService {
 		try {
 			role = roleMapper.getByID(role_id);
 		} catch (Exception e) {
-			logger.error(BizError.DATABASE_EXCEPTION.getMsg(),e);
+			logger.error(BizErrorEnum.DATABASE_EXCEPTION.getMsg(),e);
 			return role;
 		}
 		return role;

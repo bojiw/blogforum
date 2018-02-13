@@ -1,7 +1,7 @@
 package com.blogforum.common.exception;
 
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 
 /**
  * 自定义业务异常类
@@ -33,11 +33,11 @@ public class BusinessException extends RuntimeException {
 		super(message, cause);
 	}
 
-	public BusinessException(BizError bizError,Exception e){
+	public BusinessException(BizErrorEnum bizError,Exception e){
 		super(bizError.getMsg(),e);
 		this.code = bizError.getCode();
 	}
-	public BusinessException(BizError bizError){
+	public BusinessException(BizErrorEnum bizError){
 		super(bizError.getMsg());
 		this.code = bizError.getCode();
 	}

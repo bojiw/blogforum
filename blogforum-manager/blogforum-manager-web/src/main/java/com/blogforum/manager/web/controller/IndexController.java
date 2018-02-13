@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.common.utils.MD5SaltUtils;
@@ -55,13 +55,13 @@ public class IndexController {
 		AdminUser admin = (AdminUser) session.getAttribute("adminuser");
 
 		if (admin != null) {
-			logger.warn(BizError.USER_LOGIN.getMsg());
-			throw new BusinessException(BizError.USER_LOGIN);
+			logger.warn(BizErrorEnum.USER_LOGIN.getMsg());
+			throw new BusinessException(BizErrorEnum.USER_LOGIN);
 		}
 		admin = checkLogin(username, password);
 		AdminUser adminresult = adminUserService.getByUserPwd(admin);
 		if (adminresult == null) {
-			return blogforumResult.build(BizError.FAIL_USERPWD, "false");
+			return blogforumResult.build(BizErrorEnum.FAIL_USERPWD, "false");
 		}
 		session.setAttribute("adminuser", adminresult);
 		return blogforumResult.ok();
@@ -98,11 +98,11 @@ public class IndexController {
 	 */
 	private AdminUser checkLogin(String username, String password) throws BusinessException {
 		if (username == null || password == null) {
-			throw new BusinessException(BizError.NULL_USERPWD);
+			throw new BusinessException(BizErrorEnum.NULL_USERPWD);
 		}
 		AdminUser admin = adminUserService.getByUserName(username);
 		if (admin == null) {
-			throw new BusinessException(BizError.NO_USER);
+			throw new BusinessException(BizErrorEnum.NO_USER);
 		}
 		String salt = admin.getSalt();
 		String encodePWD = MD5SaltUtils.encode(password, salt);

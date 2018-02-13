@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.manager.pojo.entity.AdminUser;
@@ -39,14 +39,14 @@ public class AdminUserController {
 
 		AdminUser admin = (AdminUser) session.getAttribute("adminuser");
 		if (admin == null) {
-			logger.error(BizError.NO_LOGIN.getMsg());
-			throw new BusinessException(BizError.NO_LOGIN);
+			logger.error(BizErrorEnum.NO_LOGIN.getMsg());
+			throw new BusinessException(BizErrorEnum.NO_LOGIN);
 		}
 
 		AdminUser adminUser = checkInsert(username, password, roleId);
 		if (adminUser == null) {
 			logger.error("添加管理员用户所传参数非法,adminID:" + admin.getId());
-			throw new BusinessException(BizError.NULL_PARAMETER);
+			throw new BusinessException(BizErrorEnum.NULL_PARAMETER);
 		}
 		blogforumResult result = adminUserService.insert(adminUser);
 		return result;

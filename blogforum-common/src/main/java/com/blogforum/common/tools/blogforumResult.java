@@ -2,7 +2,7 @@ package com.blogforum.common.tools;
 
 import java.util.List;
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -47,7 +47,7 @@ public class blogforumResult {
 	}
 	
 	@JsonFormat
-	public static blogforumResult build(BizError bizError, String success) {
+	public static blogforumResult build(BizErrorEnum bizError, String success) {
 		String status = bizError.getCode();
 		String msg = bizError.getMsg();
 		return new blogforumResult(status, msg, success, null);

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.alibaba.druid.support.json.JSONUtils;
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.blogforum.common.exception.BusinessException;
 import com.blogforum.manager.service.adminuser.impl.AdminUserServiceImpl;
 
@@ -41,9 +41,9 @@ public class MyCustomExceptionResolver implements HandlerExceptionResolver {
 				map.put("msg", exception.getMessage());
 
 			} else {
-				map.put("status", BizError.SYS_EXCEPTION.getCode());
-				map.put("msg", BizError.SYS_EXCEPTION.getMsg());
-				logger.error(BizError.SYS_EXCEPTION.getMsg(), exception);
+				map.put("status", BizErrorEnum.SYS_EXCEPTION.getCode());
+				map.put("msg", BizErrorEnum.SYS_EXCEPTION.getMsg());
+				logger.error(BizErrorEnum.SYS_EXCEPTION.getMsg(), exception);
 			}
 
 			// 对于非ajax请求，我们都统一跳转到error.jsp页面
@@ -60,9 +60,9 @@ public class MyCustomExceptionResolver implements HandlerExceptionResolver {
 					map.put("status", ((BusinessException) exception).getCode());
 					map.put("msg", exception.getMessage());
 				} else {
-					map.put("status", BizError.SYS_EXCEPTION.getCode());
-					map.put("msg", BizError.SYS_EXCEPTION.getMsg());
-					logger.error(BizError.SYS_EXCEPTION.getMsg(), exception);
+					map.put("status", BizErrorEnum.SYS_EXCEPTION.getCode());
+					map.put("msg", BizErrorEnum.SYS_EXCEPTION.getMsg());
+					logger.error(BizErrorEnum.SYS_EXCEPTION.getMsg(), exception);
 				}
 				writer.write(JSONUtils.toJSONString(map));
 				writer.flush();

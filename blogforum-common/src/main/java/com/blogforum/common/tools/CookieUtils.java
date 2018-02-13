@@ -45,9 +45,29 @@ public class CookieUtils {
 	 *            路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, String path) {
-		setCookie(response, name, value, path, 60 * 60 * 24);
+		setCookie(response, name, value, path, 60 * 60 * 24,null);
 	}
 
+	
+	/**
+	 * 设置 同顶级域Cookie
+	 * 
+	 * @param name
+	 *            名称
+	 * @param value
+	 *            值
+	 * @param maxAge
+	 *            生存时间（单位秒）
+	 * @param uri
+	 *            路径
+	 */
+	public static void setCookie(HttpServletResponse response, String name, String value, String path, String domain) {
+		setCookie(response, name, value, path, 60 * 60 * 24, domain);
+	}
+
+	
+	
+	
 	/**
 	 * 设置 Cookie
 	 * 
@@ -61,7 +81,7 @@ public class CookieUtils {
 	 *            路径
 	 */
 	public static void setCookie(HttpServletResponse response, String name, String value, int maxAge) {
-		setCookie(response, name, value, "/", maxAge);
+		setCookie(response, name, value, "/", maxAge,null);
 	}
 
 	/**
@@ -76,10 +96,13 @@ public class CookieUtils {
 	 * @param uri
 	 *            路径
 	 */
-	public static void setCookie(HttpServletResponse response, String name, String value, String path, int maxAge) {
+	public static void setCookie(HttpServletResponse response, String name, String value, String path, int maxAge,String domain) {
 		Cookie cookie = new Cookie(name, null);
 		cookie.setPath(path);
 		cookie.setMaxAge(maxAge);
+		if (domain != null) {
+			cookie.setDomain(domain);
+		}
 		try {
 			cookie.setValue(URLEncoder.encode(value, "utf-8"));
 		} catch (UnsupportedEncodingException e) {

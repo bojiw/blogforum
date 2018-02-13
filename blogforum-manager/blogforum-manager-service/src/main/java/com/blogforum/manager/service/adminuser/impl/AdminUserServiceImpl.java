@@ -6,7 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.blogforum.common.enums.BizError;
+import com.blogforum.common.enums.BizErrorEnum;
 import com.blogforum.common.exception.BusinessException;
 import com.blogforum.common.tools.blogforumResult;
 import com.blogforum.common.utils.MD5SaltUtils;
@@ -27,7 +27,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 		String salt = MD5SaltUtils.randomCreateSalt();
 		String encodePWD = MD5SaltUtils.encode(adminUser.getPassword(), salt);
 		if (null == encodePWD) {
-			return blogforumResult.build(BizError.SYS_EXCEPTION, "false");
+			return blogforumResult.build(BizErrorEnum.SYS_EXCEPTION, "false");
 		}
 		adminUser.setPassword(encodePWD);
 		adminUser.setSalt(salt);
@@ -36,7 +36,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 			adminUserMapper.insert(adminUser);
 		} catch (Exception e) {
 			logger.error("插入数据库失败:" + adminUser.toString(), e);
-			return blogforumResult.build(BizError.DATABASE_INSERT, "false");
+			return blogforumResult.build(BizErrorEnum.DATABASE_INSERT, "false");
 		}
 
 		return blogforumResult.ok();
@@ -48,7 +48,7 @@ public class AdminUserServiceImpl implements AdminUserService {
 		try {
 			newAdminUser = adminUserMapper.getByUserPwd(adminUser);
 		} catch (Exception e) {
-			logger.error(BizError.DATABASE_EXCEPTION.getMsg(), e);
+			logger.error(BizErrorEnum.DATABASE_EXCEPTION.getMsg(), e);
 			return newAdminUser;
 		}
 
@@ -67,8 +67,8 @@ public class AdminUserServiceImpl implements AdminUserService {
 		try {
 			newAdminUser = adminUserMapper.getByUserName(username);
 		} catch (Exception e) {
-			logger.error(BizError.DATABASE_EXCEPTION.getMsg(), e);
-			throw new BusinessException(BizError.DATABASE_EXCEPTION);
+			logger.error(BizErrorEnum.DATABASE_EXCEPTION.getMsg(), e);
+			throw new BusinessException(BizErrorEnum.DATABASE_EXCEPTION);
 		}
 
 		return newAdminUser;
