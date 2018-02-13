@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.blogforum</groupId>
+    <artifactId>blogforum-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.blogforum</groupId>
+  <artifactId>blogforum-sso</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <modules>
+  	<module>blogforum-sso-web</module>
+  	<module>blogforum-sso-service</module>
+  	<module>blogforum-sso-dao</module>
+  	<module>blogforum-sso-pojo</module>
+  	<module>blogforum-sso-common</module>
+  	<module>blogforum-sso-facade</module>
+  	<module>blogforum-sso-integration</module>
+  </modules>
+  
+    <dependencyManagement>
+        <dependencies>
+        
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-facade</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+            <dependency>
+                <!--Import dependency management from Spring Boot-->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>1.5.4.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!--如果要把springboot工程打包成war执行，需要该jar-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-legacy</artifactId>
+                <version>1.1.0.RELEASE</version>
+            </dependency>
+	        <!--mybatis-->
+	        <dependency>
+	            <groupId>org.mybatis.spring.boot</groupId>
+	            <artifactId>mybatis-spring-boot-starter</artifactId>
+	            <version>1.2.0</version>
+	        </dependency>
+	        
+	      <dependency>
+	        <groupId>com.alibaba</groupId>
+	        <artifactId>druid</artifactId>
+	        <version>1.1.0</version>
+	      </dependency>
+	        <!-- redis -->
+		    <dependency>
+		      <groupId>org.springframework.boot</groupId>
+		      <artifactId>spring-boot-starter-redis</artifactId>
+		      <version>1.4.5.RELEASE</version>
+		    </dependency>
+		    <!-- 阿里大于短信平台 -->
+			<dependency>
+			  <groupId>com.aliyun</groupId>
+			  <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+			  <version>1.0.0</version>
+			</dependency>
+			<dependency>
+			  <groupId>com.aliyun</groupId>
+			  <artifactId>aliyun-java-sdk-core</artifactId>
+			  <version>3.2.3</version>
+			</dependency>
+			
+            <dependency>
+            	<groupId>com.blogforum</groupId>
+            	<artifactId>blogforum-sso-service</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+            	<groupId>com.blogforum</groupId>
+            	<artifactId>blogforum-sso-pojo</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+            	<groupId>com.blogforum</groupId>
+            	<artifactId>blogforum-sso-dao</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+            	<groupId>com.blogforum</groupId>
+            	<artifactId>blogforum-sso-common</artifactId>
+            	<version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            
+            <dependency>
+			    <groupId>com.blogforum</groupId>
+			    <artifactId>blogforum-sso-facade</artifactId>
+			    <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+			    <groupId>com.blogforum</groupId>
+			    <artifactId>blogforum-sso-integration</artifactId>
+			    <version>0.0.1-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+			    <groupId>com.alibaba</groupId>
+			    <artifactId>dubbo</artifactId>
+			    <version>2.5.2</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+
+</project>

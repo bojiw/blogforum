@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogforum.notebook.dao.mapper.NoteBodyMapper">
+    
+    <sql id="NoteBodyField">
+        nb.id id,
+        nb.note_body	noteBody,
+        nb.md_note_body	mdNoteBody,
+        nb.create_date	createDate,
+        nb.update_date	updateDate,
+        nb.enclosure	enclosure,
+        nb.del_flag	delFlag,
+        nb.extjson	extjson,
+        nb.label	label,
+        nb.text_type	textType,
+        nb.note_title_id	 noteTitleId,
+        nb.image_context		imageContext,
+        nb.user_id			userId,
+        nb.note_title_name	noteTitleName
+    </sql>
+
+    <resultMap type="com.blogforum.notebook.pojo.entity.NoteBody" id="noteBodyMap">
+        <id property="id" column="id" />
+        <result property="noteBody" column="noteBody" />
+        <result property="mdNoteBody" column="mdNoteBody" />
+        <result property="createDate" column="createDate" />
+        <result property="updateDate" column="updateDate" />
+        <result property="enclosure" column="enclosure" />
+        <result property="delFlag" column="delFlag" />
+        <result property="extjson" column="extjson" />
+        <result property="label" column="label" />
+        <result property="textType" column="textType" />
+        <result property="noteTitleId" column="noteTitleId"/>
+        <result property="imageContext" column="imageContext"/>
+        <result property="userId" column="userId"/>
+        <result property="noteTitleName" column="noteTitleName"/>
+    </resultMap>
+
+        
+    <!-- 添加笔记 -->
+	<insert id="save" parameterType="com.blogforum.notebook.pojo.entity.NoteBody">
+		insert into 
+		note_body(
+			id,note_body,md_note_body,create_date,update_date,enclosure,del_flag,extjson,label,text_type,note_title_id,image_context,user_id,note_title_name
+		) 
+		values (
+			#{id},#{noteBody},#{mdNoteBody},#{createDate},#{updateDate},#{enclosure},#{delFlag},#{extjson},#{label},#{textType},#{noteTitleId},#{imageContext},#{userId},#{noteTitleName}
+		)
+	</insert>
+	
+	<!-- 删除笔记 -->
+	<update id="delete" parameterType="com.blogforum.notebook.pojo.entity.NoteBody">
+	    update 
+	    	note_body
+	    set 
+	    	update_date = #{updateDate},
+	    	del_flag = 'Y'
+	    where 
+	    	id=#{id}
+	    <if test="userId != null and userId != ''">
+			AND user_id=#{userId}
+		</if>
+	    
+	</update>
+	<!-- 修改笔记 -->
+	<update id="update" parameterType="com.blogforum.notebook.pojo.entity.NoteBody">
+	    update 
+	    note_body 
+	    set note_body = #{noteBody},md_note_body = #{mdNoteBody},create_date = #{createDate},
+	    update_date = #{updateDate},enclosure = #{enclosure},del_flag = #{delFlag},extjson = #{extjson},label = #{label},text_type=#{textType},note_title_id=#{noteTitleId},image_context=#{imageContext},user_id=#{userId},note_title_name=#{noteTitleName}
+	    where id=#{id}
+	    <if test="userId != null and userId != ''">
+			AND user_id=#{userId}
+		</if>
+	</update>
+	
+	
+	<!-- 通过ID查询笔记 -->
+	<select id="getById" resultType="com.blogforum.notebook.pojo.entity.NoteBody" >
+	    SELECT 
+	    	<include refid="NoteBodyField"/>
+	    FROM 
+	    	note_body nb
+	    WHERE 
+	    	nb.id=#{id} and nb.del_flag='N'
+	    <if test="userId != null and userId != ''">
+			AND nb.user_id=#{userId}
+		</if>
+	</select>
+	
+	<!-- 通过笔记头部表ID查询笔记 -->
+	<select id="getByNoteTitleId" resultMap="noteBodyMap">
+	    SELECT 
+	    	<include refid="NoteBodyField"/>
+	    FROM 
+	    	note_body nb
+	    WHERE 
+	    	nb.note_title_id=#{noteTitleId} and nb.del_flag='N'
+	    <if test="userId != null and userId != ''">
+			AND nb.user_id=#{userId}
+		</if>
+	</select>
+	
+
+</mapper>

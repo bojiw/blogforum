@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 加载配置文件 -->
+	<context:property-placeholder location="classpath:properties/*.properties" />
+    
+    <bean id="bdGeneralClient" class="com.blogforum.docking.integration.baidu.impl.BdGeneralClientImpl" >
+        <property name="APP_ID" value="${baidu.gen.appid}"></property>
+        <property name="API_KEY" value="${baidu.gen.apiKey}"></property>
+        <property name="SECRET_KEY" value="${baidu.gen.secretKey}"></property>
+        <property name="CONN_TIME_OUT" value="${baidu.gen.connTimeOut}"></property>
+        <property name="SOCKET_TIME_OUT" value="${baidu.gen.socketTimeOut}"></property>
+    </bean>
+    
+    <bean id="noteBodyServerFacadeClient" class="com.blogforum.docking.integration.note.impl.NoteBodyServerFacadeClientImpl">
+        <property name="noteBodyServerFacade" ref="noteBodyServerFacade"></property>
+    </bean>
+    
+</beans>

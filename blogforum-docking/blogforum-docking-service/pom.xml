@@ -1,0 +1,94 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.blogforum</groupId>
+    <artifactId>blogforum-docking</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>blogforum-docking-service</artifactId>
+  
+	<dependencies>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-dao</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-facade</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-integration</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-facade</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+				<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		
+		<dependency>
+	      <groupId>com.rabbitmq</groupId>
+	      <artifactId>amqp-client</artifactId>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.amqp</groupId>
+	        <artifactId>spring-rabbit</artifactId>
+	    </dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		
+		<!-- 邮件 -->
+        <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+        </dependency>
+        
+	    <!-- 阿里大于短信平台 -->
+		<dependency>
+		  <groupId>com.aliyun</groupId>
+		  <artifactId>aliyun-java-sdk-dysmsapi</artifactId>
+		</dependency>
+		<dependency>
+		  <groupId>com.aliyun</groupId>
+		  <artifactId>aliyun-java-sdk-core</artifactId>
+		</dependency>
+	</dependencies>
+  
+</project>

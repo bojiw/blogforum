@@ -1,0 +1,202 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.blogforum</groupId>
+    <artifactId>blogforum-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <groupId>com.blogforum</groupId>
+  <artifactId>blogforum-notebook</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+	<modules>
+		<module>blogforum-notebook-web</module>
+		<module>blogforum-notebook-service</module>
+		<module>blogforum-notebook-dao</module>
+		<module>blogforum-notebook-pojo</module>
+		<module>blogforum-notebook-common</module>
+		<module>blogforum-notebook-facade</module>
+		<module>blogforum-notebook-integration</module>
+	</modules>
+	<dependencyManagement>
+ 	 <dependencies>
+	  	<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-integration</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-pojo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	  	<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-dao</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-notebook-facade</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	  	<dependency>
+		    <groupId>com.blogforum</groupId>
+		    <artifactId>blogforum-sso-facade</artifactId>
+		    <version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-docking-facade</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.blogforum</groupId>
+			<artifactId>blogforum-search-facade</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+	         <groupId>org.apache.velocity</groupId>
+	         <artifactId>velocity</artifactId>
+	         <version>1.7</version>
+		</dependency>
+		<dependency>
+	         <groupId>org.apache.velocity</groupId>
+	         <artifactId>velocity-tools</artifactId>
+	         <version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.3.8.RELEASE</version>
+		</dependency>
+		<!-- junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+		  <groupId>com.qiniu</groupId>
+		  <artifactId>qiniu-java-sdk</artifactId>
+		  <version>[7.2.0, 7.2.99]</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.alibaba</groupId>
+		    <artifactId>dubbo</artifactId>
+		    <version>2.5.2</version>
+		</dependency>
+		
+		<!-- rabbitmq -->
+		<dependency>
+	      <groupId>com.rabbitmq</groupId>
+	      <artifactId>amqp-client</artifactId>
+	      <version>3.5.1</version>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.springframework.amqp</groupId>
+	        <artifactId>spring-rabbit</artifactId>
+	        <version>1.4.5.RELEASE</version>
+	    </dependency>
+	    
+		<dependency>
+		  <groupId>commons-collections</groupId>
+		  <artifactId>commons-collections</artifactId>
+		  <version>3.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>org.apache.zookeeper</groupId>
+		  <artifactId>zookeeper</artifactId>
+		  <version>3.4.9</version>
+		</dependency>
+		
+	  </dependencies>
+	</dependencyManagement>
+
+  
+  
+  <!-- 设置使用maven实现不同环境使用不同配置文件 -->
+ 	<profiles>
+          <profile>
+              <id>product</id>
+                  <properties>
+                       <package.environment>product</package.environment>
+                  </properties>
+                  <!-- 这个位置为默认使用product环境配置 -->
+                  <activation>
+                  	<activeByDefault>true</activeByDefault>
+                  </activation>
+          </profile>
+          <profile>
+              <id>dev</id>
+                  <properties>
+                       <package.environment>dev</package.environment>
+                  </properties>
+          </profile>
+	 </profiles>
+  
+	<!-- 添加tomcat插件 -->
+	<build>
+	<finalName>blogforum</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<configuration>
+					<port>8080</port>
+					<path>/</path>
+					<uriEncoding>UTF-8</uriEncoding>
+				</configuration>
+			</plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <warSourceExcludes>*/lib/jsp-api-2.2.jar</warSourceExcludes>
+                    <webResources>
+                        <resource>
+                        	<!-- 根据变量把想要的环境配置文件复制到properties中 默认是把product中的文件复制 也可以在打包的时候加-Dpackage.environment=dev把dev文件夹下的配置文件复制过去 -->
+                            <directory>src/main/resources/properties/${package.environment}</directory>
+                            <targetPath>WEB-INF/classes/properties</targetPath>
+                            <filtering>true</filtering>
+                        </resource>
+                    </webResources>
+                </configuration>
+            </plugin>
+		</plugins>
+		
+		<!-- resources目录下的properties/productproperties/dev下的文件不拷贝到war包中 通过上面的配置来拷贝-->
+        <resources>
+            <resource>
+                <directory>src/main/resources/</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>properties/product/*</exclude>
+                    <exclude>properties/dev/*</exclude>
+                </excludes>
+            </resource>
+        </resources>
+		
+	</build>
+
+</project>

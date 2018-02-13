@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blogforum.notebook.dao.mapper.NoteBookMapper">
+    
+    <sql id="NoteBookField">
+        b.id id,
+        b.name bname,
+        b.user_id buser_id,
+        b.parent_id bparent_id,
+        b.create_date bcreate_date,
+        b.update_date bupdate_date,
+        b.have_node bhave_node,
+        b.del_flag bdel_flag
+        
+        <!-- 
+        COUNT(n.id) noteNum
+        n.id nid,
+        n.note_title nnote_title,
+        n.note_body nnote_body,
+        n.create_date ncreate_date,
+        n.update_date nupdate_date,
+        n.blog_id nblog_id,
+        n.enclosure nenclosure,
+        n.type ntype,
+        n.del_flag ndel_flag,
+        n.pwd_share_id npwd_share_id,
+        n.extjson nextjson,
+        n.label nlabel
+        
+         -->
+
+    </sql>
+    <resultMap type="com.blogforum.notebook.pojo.entity.NoteBook" id="noteBookMap">
+        <id property="id" column="id"/>
+        <result property="name" column="bname"/>
+        <result property="userId" column="buser_id"/>
+        <result property="parentId" column="bparent_id"/>
+        <result property="createDate" column="bcreate_date"/>
+        <result property="updateDate" column="bupdate_date"/>
+        <result property="haveNode" column="bhave_node"/>
+        <result property="delFlag" column="bdel_flag"/>
+        <!-- 
+        
+        <collection property="notes" ofType="com.blogforum.notebook.pojo.entity.Note">
+            <id property="id" column="nid" />
+        	<result property="noteTitle" column="nnote_title" />
+        	<result property="noteBody" column="nnote_body" />
+        	<result property="createDate" column="ncreate_date" />
+        	<result property="updateDate" column="nupdate_date" />
+        	<result property="blogId" column="nblog_id" />
+        	<result property="enclosure" column="nenclosure" />
+        	<result property="type" column="ntype" />
+        	<result property="delFlag" column="ndel_flag" />
+        	<result property="pwdShareId" column="npwd_share_id" />
+        	<result property="extjson" column="nextjson" />
+        	<result property="label" column="nlabel" />
+        </collection>
+         -->
+
+        
+    </resultMap>
+    
+    <!-- 添加笔记本 -->
+	<insert id="save" parameterType="com.blogforum.notebook.pojo.entity.NoteBook">
+		insert into
+		note_book(
+			id,parent_id,name,user_id,create_date,update_date,have_node,del_flag
+		)
+		values(
+			#{id},#{parentId},#{name},#{userId},#{createDate},#{updateDate},#{haveNode},#{delFlag}
+		)
+	</insert>
+	
+	<!-- 删除笔记本 -->
+	<update id="delete" parameterType="com.blogforum.notebook.pojo.entity.NoteBook">
+	    update
+	    	note_book
+	    set 
+	    	del_flag = #{delFlag},update_date=#{updateDate}
+	    where 
+	    	id=#{id}
+	    <if test="userId != null and userId != ''">
+			AND user_id=#{userId}
+		</if>
+	</update>
+	<!-- 修改笔记本 -->
+	<update id="update" parameterType="com.blogforum.notebook.pojo.entity.NoteBook">
+	    update 
+	    note_book 
+	    set parent_id = #{parentId},name = #{name},user_id = #{userId},
+	    create_date = #{createDate},update_date = #{updateDate},have_node=#{haveNode},del_flag=#{delFlag}
+	    where id=#{id}
+	    <if test="userId != null and userId != ''">
+			AND user_id=#{userId}
+		</if>
+	</update>
+	
+	<select id="queryList" parameterType="com.blogforum.notebook.pojo.entity.NoteBook" resultMap="noteBookMap">
+	    select 
+	    <include refid="NoteBookField"/>
+	    from 
+	    	note_book b
+	    where 
+	    	b.user_id=#{userId} and b.del_flag = 'N'
+	</select>
+	<select id="getById" parameterType="com.blogforum.notebook.pojo.entity.NoteBook" resultMap="noteBookMap">
+	    select 
+	    <include refid="NoteBookField"/>
+		from 
+			note_book b
+		where
+		b.id = #{id} and b.del_flag = 'N'
+	    <if test="userId != null and userId != ''">
+			AND b.user_id=#{userId}
+		</if>
+	    
+	</select>
+	
+	
+	<select id="queryListByParentId" parameterType="com.blogforum.notebook.pojo.entity.NoteBook" resultMap="noteBookMap">
+	    select 
+	    	<include refid="NoteBookField"/>
+		from 
+			note_book b
+		where 
+			b.parent_id = #{parentId} 
+			and b.del_flag = 'N'
+	    <if test="userId != null and userId != ''">
+			AND b.user_id=#{userId}
+		</if>
+	</select>
+	
+	
+	
+	<!--  left join获取对应笔记数量 因全部改为单表查询 注释掉不用
+	<select id="queryListByParentId" resultMap="noteBookMap">
+	    select 
+	    <include refid="NoteBookField"/>
+		from 
+		(
+			SELECT 
+			 * 
+			FROM
+			 	note_book
+			WHERE
+				note_book.parent_id = #{parentId}
+		) b
+		LEFT JOIN
+		note n
+		ON
+		b.id = n.note_book_id
+		GROUP BY
+		n.id
+	    order by b.name desc
+	</select>
+	-->
+
+</mapper>

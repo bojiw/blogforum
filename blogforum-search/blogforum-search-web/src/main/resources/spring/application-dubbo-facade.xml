@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+	
+    <!-- 声明需要暴露的服务接口 -->
+    <context:property-placeholder location="classpath:properties/*.properties" />
+    
+        <!-- 提供方应用信息，用于计算依赖关系 -->  
+    <dubbo:application name="${dubbo.application.name}" />  
+    
+    <!-- 注册中心暴露服务地址 -->  
+   <dubbo:registry protocol="${dubbo.registry.protocol}" address="${dubbo.registry.address}" /> 
+   
+   <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
+   <!-- 启动时找不到服务提供者忽略 -->
+   <dubbo:consumer check="false"/>
+   
+    <dubbo:service interface="com.blogforum.search.facade.service.SolrServiceFacade"  
+        ref="solrServiceFacade" retries="3" timeout="3000" />  
+    
+    <bean id="solrServiceFacade" class="com.blogforum.search.service.facade.impl.SolrServiceFacadeImpl">
+        <property name="queryServerFactory" ref="queryServerFactory"></property>
+    </bean>
+
+    
+</beans>

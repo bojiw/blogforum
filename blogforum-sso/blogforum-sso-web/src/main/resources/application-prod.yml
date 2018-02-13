@@ -1,0 +1,128 @@
+server:
+    #项目启动端口
+    port: 80
+    tomcat: 
+      # tomcat的URI编码
+      uri-encoding: utf-8
+      # tomcat最大线程数，默认为200
+      max-threads: 1000
+
+banner:
+    charset: UTF-8
+
+spring: 
+    messages:
+        encoding: UTF-8
+    datasource:
+        # 使用druid数据源
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://172.20.1.13:3306/blogforum_user?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+        username: blogforum
+        password: Biyu5YzU+6sxDRbmWEa3B2uUcImzDo0BuXjTlL505+/pTb+/0Oqd3ou1R6J8+9Fy3CYrM18nBDqf6wAaPgUGOg==
+        
+        
+        # 下面为连接池的补充设置，应用到上面所有数据源中
+        # 初始化大小，最小，最大
+        initialSize: 5
+        minIdle: 5
+        maxActive: 20
+        # 配置获取连接等待超时的时间
+        maxWait: 60000
+        # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+        timeBetweenEvictionRunsMillis: 60000
+        # 配置一个连接在池中最小生存的时间，单位是毫秒
+        minEvictableIdleTimeMillis: 300000
+        validationQuery: SELECT 1
+        testWhileIdle: true
+        testOnBorrow: false
+        testOnReturn: false
+        # 打开PSCache，并且指定每个连接上PSCache的大小
+        poolPreparedStatements: true
+        maxPoolPreparedStatementPerConnectionSize: 20
+        # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+        connectionProperties: 
+          druid.stat.mergeSql: true
+          druid.stat.slowSqlMillis: 5000
+        #开启监控因为使用加密所以需要加config stat为sql监控 
+        filters: config,stat,wall,log4j
+    #redis
+    redis: 
+      # Redis服务器地址
+      hostName: 172.20.1.15
+      # Redis服务器连接端口
+      port: 6379
+      # Redis服务器连接密码
+      password: wangwendi
+      # 连接超时时间（毫秒）
+      timeout: 6000
+      # 单个请求最长等待时间
+      max-wait-millis: 1000
+      #指定一个空闲连接最少空闲多久后可被清除.
+      min-evictable-idle-time-millis: 3000
+      # 连接池最大连接数（使用负值表示没有限制）
+      max-total: 100
+      # 连接池中的最大空闲连接
+      max-idle: 30
+      # 连接池中的最小空闲连接
+      min-idle: 10
+      time-between-eviction-runs-millis: 5000
+      
+    #邮件发送配置
+    mail:
+      host: smtp.126.com
+      username: blogwangwendi@126.com
+      password: qaz123456
+      default-encoding: UTF-8
+      #设置通信端口为465加密端口
+      port: 465
+      properties:
+      #使用ssl加密设置
+        mail.smtp.socketFactory.class: javax.net.ssl.SSLSocketFactory
+        
+mybatis:
+    type-aliases-package: com.blogforum.sso.pojo.entity
+    mapper-locations: classpath:mapper/*.xml
+    
+dubbo: 
+    application: 
+      name: blogforum-sso
+      #设置超时时间为3000毫秒
+      timeout: 3000
+    registry: 
+      #使用上面注册中心和注册中心地址 
+      protocol: zookeeper
+      address: 172.20.1.14:2181
+    protocol:
+      #使用dubbo作为通信协议 端口为20880
+      name: dubbo
+      port: 20880
+      
+rabbitmq: 
+  addresses: 172.20.1.30:5672 
+  username: blogforum
+  password: 123456
+  publisher-confirms: true
+  virtual-host: blogforum
+  channelCacheSize: 100
+    
+#sso服务器地址
+myValue: 
+  ssoServiceUrl: http://sso.bojiw.com
+  #session过期时间
+  session_time: 1800
+  #注册时保存到redis的值
+  register_key: REGISTER_KEY
+  #笔记系统地址
+  noteServerUrl: http://note.bojiw.com
+  #session开头key
+  session_key: SESSION
+  #sso顶级域名地址
+  domain: bojiw.com
+  #默认用户头像路径
+  defaulUserImageUrl: http://ouqhxmwfh.bkt.clouddn.com/20182/201827211710jek79lblo0wzh0k9
+
+
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>   
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   
+    "http://www.w3.org/2002/xmlspec/dtd/2.10/xmlspec.dtd">
+<toolbox>
+    <!--数字格式化-->
+    <tool>
+        <key>NumberTool</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.NumberTool</class>
+    </tool>
+    <!--日期格式化-->
+    <tool>
+        <key>date</key>
+        <scope>application</scope>
+        <class>org.apache.velocity.tools.generic.DateTool</class>
+    </tool>
+</toolbox>  
