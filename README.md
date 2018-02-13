@@ -17,7 +17,7 @@
 - - blogforum-manager-pojo -------------------后台模型层
 - - blogforum-manager-dao ------------------- 后台数据库层
 - - blogforum-manager-common ---------------后台工具层
-- - blogforum-manager-facade -----------------后台对外接口层
+- - blogforum-manager-facade -----------------后台门面接口层
 - - blogforum-manager-integration -------------后台接入接口层
 - blogorum-sso------------------------------单点登录系统(登录系统,除管理系统外所有系统统一的登录入口)
 - - blogforum-sso-web ------------------------单点前端层
@@ -25,7 +25,7 @@
 - - blogforum-sso-pojo ------------------------单点模型层
 - - blogforum-sso-dao ------------------------ 单点数据库层
 - - blogforum-sso-common --------------------单点工具层
-- - blogforum-sso-facade ----------------------单点对外接口层
+- - blogforum-sso-facade ----------------------单点门面接口层
 - - blogforum-sso-integration ------------------单点接入接口层
 - blogforum-notebook------------------------笔记系统(核心笔记系统,可以让人记录和搜索笔记)
 - - blogforum-notebook-web -------------------笔记前端层
@@ -33,7 +33,7 @@
 - - blogforum-notebook-pojo ------------------ 笔记模型层
 - - blogforum-notebook-dao ------------------- 笔记数据库层
 - - blogforum-notebook-common ---------------笔记工具层
-- - blogforum-notebook-facade -----------------笔记对外接口层
+- - blogforum-notebook-facade -----------------笔记门面接口层
 - - blogforum-notebook-integration -------------笔记接入接口层
 - blogforum-docking------------------------对接第三方系统(所有调用第三方系统对接的统一放在这个系统中如短信,邮箱)
 - - blogforum-docking-web ---------------------第三方前端层
@@ -41,7 +41,7 @@
 - - blogforum-docking-pojo ---------------------第三方模型层
 - - blogforum-docking-dao --------------------- 第三方数据库层
 - - blogforum-docking-common -----------------第三方工具层
-- - blogforum-docking-facade -------------------第三方对外接口层
+- - blogforum-docking-facade -------------------第三方门面接口层
 - - blogforum-docking-integration ---------------第三方接入接口层
 - blogforum-search------------------------搜索系统(提供整个网站所有的搜索服务)
 - - blogforum-search-web ----------------------搜索前端层
@@ -49,7 +49,7 @@
 - - blogforum-search-pojo --------------------- 搜索模型层
 - - blogforum-search-dao ----------------------搜索数据库层
 - - blogforum-search-common ----------------- 搜索工具层
-- - blogforum-search-facade ------------------- 搜索对外接口层
+- - blogforum-search-facade ------------------- 搜索门面接口层
 - - blogforum-search-integration --------------- 搜索接入接口层
 - blogforum-blog------------------------ 博客系统(核心博客系统,主要为查看他人博客)
 - - blogforum-blog-web ----------------------- 博客前端层
@@ -57,7 +57,7 @@
 - - blogforum-blog-pojo -----------------------博客模型层
 - - blogforum-blog-dao ----------------------- 博客数据库层
 - - blogforum-blog-common -------------------博客工具层
-- - blogforum-blog-facade ---------------------博客对外接口层
+- - blogforum-blog-facade ---------------------博客门面接口层
 - - blogforum-blog-integration -----------------博客接入接口层
 
 ## 系统架构
