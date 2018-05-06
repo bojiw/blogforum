@@ -98,6 +98,7 @@
 
 [搜索系统](https://github.com/MrNiceWangwendi/blogforum-search "搜索系统")
 
+[后台管理系统](https://github.com/bojiw/blogforum-manager.git "后台管理系统")
 
 ## 技术选型
 #### java框架使用：
