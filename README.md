@@ -1,5 +1,5 @@
 # blogforum
-博记系统
+博记系统  地址 http://sso.bojiw.com
 
 ## 前言
 博记系统是一款笔记加博客结合的一款系统，其实主要是为了借着这个系统来学习新的技术，从零开始搭建整个分布式系统的架构，而且是自己的系统，所以只要有什么好的想法都可以加进去，通过实践来快速积累技术经验
@@ -7,6 +7,93 @@
 ## 项目介绍
 项目的核心为两块 一块为笔记系统 一块为博客系统，笔记系统核心功能就是可以记录笔记并且可以搜索笔记，相当于印象笔记，而博客系统则类似于CSDN，可以发布博客让人观看学习，和上面的两个主要的区别为笔记和博客系统之间的数据是打通的，可以直接把笔记一键分享到博客平台，也可以记录自己的私人笔记而不进行共享
 
+## 目前进度
+目前已开发完单点登录系统、笔记系统、第三方接入系统、搜索系统、后台管理系统的核心功能,后续会开发增强功能,如笔记的团队协作,博客系统还未开始开发
+
+## 各项目详细介绍地址
+
+[单点登录系统](https://github.com/MrNiceWangwendi/blogforum-sso "单点登录系统")
+
+[笔记系统](https://github.com/MrNiceWangwendi/blogforum-notebook "笔记系统")
+
+[第三方接入系统](https://github.com/MrNiceWangwendi/blogforum-docking "第三方接入系统")
+
+[搜索系统](https://github.com/MrNiceWangwendi/blogforum-search "搜索系统")
+
+[后台管理系统](https://github.com/bojiw/blogforum-manager.git "后台管理系统")
+
+
+## 系统架构
+
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143147图片.png)
+
+## 系统功能
+
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816144226图片.png)
+
+## 模块依赖
+
+![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816172822图片.png)
+
+## 模块介绍
+#### Web模块
+和前端交互都通过这个模块和系统自己进行交互
+#### Facade模块
+为系统提供的门面二方包，其他系统通过这个二方包里的接口和系统进行交互
+#### Service模块
+服务模块 主要处理业务逻辑 这里细分了service层和manager层 service层提供服务 manager层组装服务
+#### Dao模块
+数据库模块 主要是和数据库进行交互
+#### Integration
+接入第三方接口模块，主要为把其他系统提供的服务接入进来
+#### Common
+公共工具模块，主要提供一些工具类
+#### pojo
+模型模块，主要为javabean
+
+
+
+## 技术选型
+#### java框架使用：
+spring mvc、spring、mybatis、为了学习单点登录系统使用了spring boot
+#### 数据库
+mysql
+#### 数据库中间件
+druid、后期打算上mycat
+#### 消息中间件
+rabbitmq
+#### rpc框架
+dubbo、zookeeper
+#### 搜索引擎
+solr、IK分词器
+#### 配置中心
+后期打算用阿波罗
+#### 富文本
+wangeditor编辑器、editor.md
+#### 图片服务器
+七牛云
+#### 图片转文字
+百度ocr识别
+#### 短信
+阿里大于
+#### 邮箱
+网易
+#### 前端
+bootstrap、jquery 后期打算用vue.js
+#### 服务器
+阿里云、docker、nginx、jenkins、nexus
+#### 后期打算用到的技术
+kafak配合elasticsearch做日志管理系统
+
+Hadoop做用户搜索分析系统
+
+Python做爬取博客系统
+
+recat做移动端
+
+鹰眼做分布式跟踪系统
+
+异步命令框架
 
 ## 技术架构
 - blogforum-parent  ------------------------ 父工程
@@ -59,84 +146,3 @@
 - - blogforum-blog-common -------------------博客工具层
 - - blogforum-blog-facade ---------------------博客门面接口层
 - - blogforum-blog-integration -----------------博客接入接口层
-
-## 系统架构
-
-![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816143147图片.png)
-
-## 系统功能
-
-![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816144226图片.png)
-
-## 模块依赖
-
-![](http://ouqhxmwfh.bkt.clouddn.com/20181/201816172822图片.png)
-
-## 模块介绍
-#### Web模块
-和前端交互都通过这个模块和系统自己进行交互
-#### Facade模块
-为系统提供的门面二方包，其他系统通过这个二方包里的接口和系统进行交互
-#### Service模块
-服务模块 主要处理业务逻辑 这里细分了service层和manager层 service层提供服务 manager层组装服务
-#### Dao模块
-数据库模块 主要是和数据库进行交互
-#### Integration
-接入第三方接口模块，主要为把其他系统提供的服务接入进来
-#### Common
-公共工具模块，主要提供一些工具类
-#### pojo
-模型模块，主要为javabean
-
-## 各项目详细介绍地址
-
-[单点登录系统](https://github.com/MrNiceWangwendi/blogforum-sso "单点登录系统")
-
-[笔记系统](https://github.com/MrNiceWangwendi/blogforum-notebook "笔记系统")
-
-[第三方对接系统](https://github.com/MrNiceWangwendi/blogforum-docking "第三方对接系统")
-
-[搜索系统](https://github.com/MrNiceWangwendi/blogforum-search "搜索系统")
-
-
-## 技术选型
-#### java框架使用：
-spring mvc、spring、mybatis、为了学习单点登录系统使用了spring boot
-#### 数据库
-mysql
-#### 数据库中间件
-druid、后期打算上mycat
-#### 消息中间件
-rabbitmq
-#### rpc框架
-dubbo、zookeeper
-#### 搜索引擎
-solr、IK分词器
-#### 配置中心
-后期打算用阿波罗
-#### 富文本
-wangeditor编辑器、editor.md
-#### 图片服务器
-七牛云
-#### 图片转文字
-百度ocr识别
-#### 短信
-阿里大于
-#### 邮箱
-网易
-#### 前端
-bootstrap、jquery 后期打算用vue.js
-#### 服务器
-阿里云、docker、nginx、jenkins、nexus
-#### 后期打算用到的技术
-kafak配合elasticsearch做日志管理系统
-
-Hadoop做用户搜索分析系统
-
-Python做爬取博客系统
-
-recat做移动端
-
-鹰眼做分布式跟踪系统
-
-异步命令框架
