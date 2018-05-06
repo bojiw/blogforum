@@ -7,13 +7,16 @@
 ## 项目介绍
 项目的核心为两块 一块为笔记系统 一块为博客系统，笔记系统核心功能就是可以记录笔记并且可以搜索笔记，相当于印象笔记，而博客系统则类似于CSDN，可以发布博客让人观看学习，和上面的两个主要的区别为笔记和博客系统之间的数据是打通的，可以直接把笔记一键分享到博客平台，也可以记录自己的私人笔记而不进行共享
 
+## 目前进度
+目前已开发完单点登录系统、笔记系统、第三方接入系统、搜索系统、后台管理系统的核心功能,后续会开发增强功能,如笔记的团队协作,博客系统还未开始开发
+
 ## 各项目详细介绍地址
 
 [单点登录系统](https://github.com/MrNiceWangwendi/blogforum-sso "单点登录系统")
 
 [笔记系统](https://github.com/MrNiceWangwendi/blogforum-notebook "笔记系统")
 
-[第三方对接系统](https://github.com/MrNiceWangwendi/blogforum-docking "第三方对接系统")
+[第三方接入系统](https://github.com/MrNiceWangwendi/blogforum-docking "第三方接入系统")
 
 [搜索系统](https://github.com/MrNiceWangwendi/blogforum-search "搜索系统")
 
