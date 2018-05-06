@@ -1,11 +1,13 @@
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\model\BaseSO.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\CookieUtils.java
+E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\model\PageVO.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\enums\BizErrorEnum.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\rpc\BaseInvocation.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\LoggerUtil.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\rpc\InvocationSupport.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\TimeUtils.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\enums\RoleEnum.java
+E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\exception\MsgDiscardException.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\rpc\execption\ThirdPartyException.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\tools\UUIDCreateUtils.java
 E:\BlogForum\blogforum\blogforum-common\src\main\java\com\blogforum\common\model\Result.java

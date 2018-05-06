@@ -1,7 +1,9 @@
 package com.blogforum.common.tools;
 
 import java.text.ParseException;
+import java.util.Calendar;
 import java.util.Date;
+
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 public class DateUtils
@@ -112,4 +114,53 @@ public class DateUtils
     long afterTime = after.getTime();
     return (afterTime - beforeTime) / 86400000L;
   }
+  
+  /**
+   * 获取七天前的时间
+   * @return
+   * @author: wwd
+   * @time: 2018年3月4日
+   */
+  public static Date getLastSevenDate(){
+	  return getLastDate(Calendar.DATE, - 7);
+  }
+  
+  /**
+   * 获取一个月前的时间
+   * @return
+   * @author: wwd
+   * @time: 2018年3月4日
+   */
+  public static Date getLastMonthDate(){
+	  return getLastDate(Calendar.MONTH, -1);
+  }
+  
+  /**
+   * 获取一年前的时间
+   * @return
+   * @author: wwd
+   * @time: 2018年3月4日
+   */
+  public static Date getLastYearDate(){
+	  return getLastDate(Calendar.YEAR, -1);
+  }
+  
+  /**
+   * 获取过去的时间
+   * @return
+   * @author: wwd
+   * @time: 2018年3月4日
+   */
+  public static Date getLastDate(int field, int amount){
+	  Calendar c = Calendar.getInstance();
+	  //过去的世界
+	  c.setTime(new Date());
+	  c.add(field,amount);
+	  Date d = c.getTime();
+	  return d;
+  }
+  
+  
+
+  
 }

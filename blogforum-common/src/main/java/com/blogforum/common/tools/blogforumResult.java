@@ -66,6 +66,7 @@ public class blogforumResult {
 	}
 
 	public blogforumResult(Object data) {
+		this.success = "true";
 		this.status = "200";
 		this.msg = "OK";
 		this.data = data;
